@@ -1,0 +1,110 @@
+﻿
+<meta name="referrer" content="no-referrer">
+<style>html,body{margin:0;padding:0;background:#000;width: 100%;height: 100%;}</style>
+<script 
+<script>
+function getParam ( sname )
+{
+ var params = location.search.substr(location.search.indexOf("?")+1);
+ var sval =  params.replace("sv=", "");
+ return sval;
+}
+var sv = getParam("sv");
+</script>
+
+<script language=javascript>
+<!--
+if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) {
+   location.replace("http://raw.githack.com/gaberomar/clp2/master/clp2.html");
+}
+-->
+</script>
+ <script src="https://cdn.jsdelivr.net/gh/clappr/clappr@latest/dist/clappr.min.js"></script> 
+ <script src="https://cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.js"></script>
+ <script src="https://www.jsdelivr.com/package/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js"></script>
+<script src="https://futemax.tv/js/qenginev2.js"></script>
+ <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<style>
+body{margin:0;padding:0;background:#000;color:#fff;font-family:"Helvetica Neue",Helvetica,sans-serif}.sand{text-align:center;padding:3rem;font-size:30px}#overlay,.tb{position:absolute;left:0}#overlay,.tb{width:100%;height:100%}#counter{display:none}#overlay{background-color:rgba(0,0,0,0);top:0;text-align:center;display:none;z-index:9999;color:#fff}.tb{display:table}.tb-col{display:table-cell;vertical-align:bottom}.tb{top:0;display:none;z-index:2;color:red;text-align:center}.tb h2{margin:.5em 0;font-size:.81rem}.tb p{color:#666;margin:0 0 1em;font-size:.78rem}.notloaded .bmpui-ui-buffering-overlay-indicator{display:inline-block!important}.notloaded .bmpui-ui-buffering-overlay{display:table!important;opacity:1;visibility:visible}#playerdiv .bmpui-ui-buffering-overlay .bmpui-ui-buffering-overlay-indicator{background:#fff;height:1em;margin:.5em;width:1em;border-radius:10px}#bmpui-id-184,#bmpui-id-195,.bmpui-ui-watermark{display:none}.bmpui-ui-buffering-overlay{background-color:#000000b3}.show-controls .media-control[data-media-control].media-control-hide .media-control-background[data-background]{opacity:1}.show-controls .media-control[data-media-control].media-control-hide .media-control-layer[data-controls]{bottom:7px}.show-controls .bmpui-ui-controlbar.bmpui-hidden{opacity:1;visibility:visible}#bmpui-id-185 {margin: 9px 20px 0 10px;}
+</style>
+<div  class="video-container" id="Player" >
+
+<script type="7fd48e4e9b637a138f663eba-text/javascript">
+
+function tvf(sv)
+{
+document.write('<scr'+'ipt type=\"text/javascript\">sv=['+sv+']</scr'+'ipt>');
+}
+function gParam(name)
+{
+  var start=location.search.indexOf("?"+name+"=");
+  if (start<0) start=location.search.indexOf("$"+name+"=");
+  if (start<0) return '';
+  start += name.length+2;
+  var end=location.search.indexOf("$",start)-1;
+  if (end<0) end=location.search.length;
+  var result='';
+  for(var i=start;i<=end;i++) {
+    var c=location.search.charAt(i);
+    result=result+(c=='+'?' ':c);
+  }
+  return unescape(result);
+}
+tvf(gParam('sv'));
+
+function load_player(sv_channel){
+var playerElement = document.getElementById('Player');
+var player = new Clappr.Player({
+width: '100%',
+height: '100%',
+ autoPlay: 'true',
+watermark: "https://1.bp.blogspot.com/-JfWb2LWM2_M/Xqt1muzh4CI/AAAAAAAAI1I/mHIUUcGGnMMQ_nrZ-1lfIeMoRM2OpLmBQCK4BGAYYCw/s1600/logo1.png", position: 'top-right',
+  plugins: [DashShakaPlayback, LevelSelector]
+  ,
+ hlsjsConfig: {
+ xhrSetup: function(xhr, url) {
+  xhr.withCredentials = false;
+ }
+
+ },
+ playbackConfig: {
+ crossorigin: 'use-credentials'
+ }
+});
+player.attachTo(playerElement);
+player.load({source: sv_channel, mimeType: 'application/x-mpegURL'});
+player.play();
+}
+load_player(sv);
+</script>
+
+
+<link href="http://raw.githack.com/gaberomar/tube.css/master/tube.css" rel="stylesheet"></link>
+
+<script>
+  function errorPlaying(){
+    location.href = "http://raw.githack.com/gaberomar/clp2/master/clp2.html";
+  }
+</script>
+<script data-cf-settings="7fd48e4e9b637a138f663eba-|49" defer="" src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

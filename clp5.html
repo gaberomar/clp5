@@ -1,0 +1,97 @@
+﻿
+<meta charset="utf-8">
+<meta name="referrer" content="no-referrer">
+<style>html,body{margin:0;padding:0;background:#000;overflow: hidden;width: 100%;height: 100%;}</style>
+<script type="4c2c21748727e8c0e4306dc8-text/javascript">
+function getParam ( sname )
+{
+  var params = location.search.substr(location.search.indexOf("?")+1);
+  var sval =  params.replace("sv=", "");
+  
+  return sval;
+}
+var sv = getParam("sv");
+
+</script>
+<script language=javascript>
+<!--
+if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) {
+   location.replace("http://raw.githack.com/gaberomar/clp11/master/clp11.html");
+}
+-->
+</script>
+<script src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
+<script src="https://cdn.jsdelivr.net/clappr.level-selector/latest/level-selector.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.js"></script>
+<script src="https://cdn.jsdelivr.net/clappr.chromecast-plugin/latest/clappr-chromecast-plugin.js"></script>
+<script type="4c2c21748727e8c0e4306dc8-text/javascript" src="https://futemax.tv/js/qenginev2.js"></script>
+<script type="4c2c21748727e8c0e4306dc8-text/javascript" src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<div style="width: 100%;">
+<div  class="video-container" id="video-container" >
+<script type="4c2c21748727e8c0e4306dc8-text/javascript">	
+function tvf(sv)
+{
+document.write('<scr'+'ipt type=\"text/javascript\">sv=['+sv+']</scr'+'ipt>');
+}
+function gParam(name)
+{
+  var start=location.search.indexOf("?"+name+"=");
+  if (start<0) start=location.search.indexOf("$"+name+"=");
+  if (start<0) return '';
+  start += name.length+2;
+  var end=location.search.indexOf("$",start)-1;
+  if (end<0) end=location.search.length;
+  var result='';
+  for(var i=start;i<=end;i++) {
+    var c=location.search.charAt(i);
+    result=result+(c=='+'?' ':c);
+  }
+  return unescape(result);
+}
+tvf(gParam('sv'));
+
+function load_player(sv_channel){
+var playerElement = document.getElementById('video-container');
+var player = new Clappr.Player({
+width: '100%',
+height: '100%',
+ autoPlay: 'true',
+poster:"https://3.bp.blogspot.com/-SgV27cYF39A/X5MKHwyyssI/AAAAAAAAJbM/WdMEHq5trfQBMcj5UjrRFlmIrIEklCgCwCK4BGAYYCw/s1600/emad%2B%25281%2529.jpg",
+watermark: "https://2.bp.blogspot.com/-IHh-9xRf6A8/X5MSdFUQFSI/AAAAAAAAJco/jy7m14vysVU3yQs0CMrp_54GBhxh5GiawCK4BGAYYCw/s1600/emad213.png", position: 'top-right',
+  plugins: [DashShakaPlayback, LevelSelector]
+  ,
+ hlsjsConfig: {
+ xhrSetup: function(xhr, url) {
+  xhr.withCredentials = false;
+ }
+
+ },
+ playbackConfig: {
+ crossorigin: 'use-credentials'
+ }
+});
+player.attachTo(playerElement);
+player.load({source: sv_channel, mimeType: 'application/x-mpegURL'});
+player.play();
+}
+load_player(sv);
+</script>
+</div>  
+<link href="http://raw.githack.com/gaberomar/tube.css/master/tube.css" rel="stylesheet"></link>
+<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="4c2c21748727e8c0e4306dc8-|49" defer=""></script></body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -54,7 +54,7 @@ parentId: "#Player",
 mimeType: "application/m3u8",
  poster:"https://3.bp.blogspot.com/-SgV27cYF39A/X5MKHwyyssI/AAAAAAAAJbM/WdMEHq5trfQBMcj5UjrRFlmIrIEklCgCwCK4BGAYYCw/s1600/emad%2B%25281%2529.jpg",
  watermark: "https://1.bp.blogspot.com/-JfWb2LWM2_M/Xqt1muzh4CI/AAAAAAAAI1I/mHIUUcGGnMMQ_nrZ-1lfIeMoRM2OpLmBQCK4BGAYYCw/s1600/logo1.png", position: 'top-right',
- mediacontrol: {seekbar: "#ffdc09", buttons: "#ffdc09"},  
+ mediacontrol: {seekbar: "#f67509", buttons: "#f67509"},  
  stretching: 'exactfit',
  plugins: [DashShakaPlayback, LevelSelector],
  shakaConfiguration: {
@@ -92,13 +92,13 @@ playbackConfig: {
   }
 
 });
-
+ player.attachTo(playerElement);
    player.on(Clappr.Events.PLAYER_STOP, playerStop);
     function playerStop(){location.reload();}      
 
 }
- player.attachTo(playerElement);
- player.load({source: sv_channel, mimeType: "application/m3u8", contentType:'video/m3u8'});
+
+
  load_player(sv);
  player.play();  
  player.setVolume(100); // 1%

@@ -93,18 +93,15 @@ playbackConfig: {
 
 });
 
- 
+   player.on(Clappr.Events.PLAYER_STOP, playerStop);
+    function playerStop(){location.reload();}      
  player.attachTo(playerElement);
  player.load({source: sv_channel, mimeType: "application/m3u8", contentType:'video/m3u8'});
-
-
 }
-
  load_player(sv);
  player.play();  
  player.setVolume(100); // 1%
            
-
     </script>
 
 <style>

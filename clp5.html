@@ -29,9 +29,10 @@ var sv = getParam("sv");
 <script type="ed0b18e16460b548745e97c1-text/javascript"> 
                       
 
-var playerElement = document.getElementById("playerElement");
+var playerElement = document.getElementById("player");
     				var player = new Clappr.Player({
-				source: "https://mn-nl.mncdn.com/mekameleen/smil:mekameleentv.smil/playlist.m3u8",
+				source: sv,
+				parentId: "#video-container",
 				poster: "https://3.bp.blogspot.com/-SgV27cYF39A/X5MKHwyyssI/AAAAAAAAJbM/WdMEHq5trfQBMcj5UjrRFlmIrIEklCgCwCK4BGAYYCw/s1600/emad%2B%25281%2529.jpg",
                                 watermark: "https://1.bp.blogspot.com/-JfWb2LWM2_M/Xqt1muzh4CI/AAAAAAAAI1I/mHIUUcGGnMMQ_nrZ-1lfIeMoRM2OpLmBQCK4BGAYYCw/s1600/logo1.png", position: 'top-right',
         			baseUrl: "",

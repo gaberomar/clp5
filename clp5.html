@@ -44,19 +44,18 @@ function gParam(name)
 }
 tvf(gParam('sv'));
 
-function load_player(sv_channel)
-{
+function load_player(sv_channel){
 var playerElement = document.getElementById('player');
 var player = new Clappr.Player({
 parentId: "#Player",
-        source : sv, 
+        source: "https://akamai2-me.cdn.booyah.live/hls/113132/29555685.m3u8",
  width: '100%',
  height: "100%",
  autoPlay: true,
 mimeType: "application/m3u8",
  poster:"https://3.bp.blogspot.com/-SgV27cYF39A/X5MKHwyyssI/AAAAAAAAJbM/WdMEHq5trfQBMcj5UjrRFlmIrIEklCgCwCK4BGAYYCw/s1600/emad%2B%25281%2529.jpg",
  watermark: "https://1.bp.blogspot.com/-JfWb2LWM2_M/Xqt1muzh4CI/AAAAAAAAI1I/mHIUUcGGnMMQ_nrZ-1lfIeMoRM2OpLmBQCK4BGAYYCw/s1600/logo1.png", position: 'top-right',
- mediacontrol: {seekbar: "#f67509", buttons: "#f67509"},  
+ mediacontrol: {seekbar: "#ffdc09", buttons: "#ffdc09"},  
  stretching: 'exactfit',
  plugins: [DashShakaPlayback, LevelSelector],
  shakaConfiguration: {
@@ -81,29 +80,20 @@ playbackConfig: {
                             baseDelay: 200,
                             backoffFactor: 4,
                             fuzzFactor: 0.5,
-
           shakaOnBeforeLoad: function(shaka_player)
- {
- 
-},
-     
+ { player.on(Clappr.Events.PLAYER_STOP, playerStop);
+   function playerStop(){location.reload();}},
             // shaka_player.getNetworkingEngine().registerRequestFilter() ...
-           },
-        }
-
-  }
-
-});
- player.on(Clappr.Events.PLAYER_STOP, playerStop);
- function playerStop(){location.reload();}}
+           },}}});
+ player.setVolume(100); // 1%       
+ player.attachTo(playerElement);
+ player.load({source: sv_channel, mimeType: 'application/x-mpegURL'});
+ player.play();
+ }
  load_player(sv);
- player.play();  
- player.setVolume(100); // 1%
-  player.attachTo(playerElement);
-player.load({source: sv_channel, command: 'video_url.m3u8', mimeType: 'application/m3u8'});
-           
-    </script>
 
+    </script>
+  
 <style>
  body {
     overflow: hidden;

@@ -129,20 +129,18 @@ var topVideo = getQueryString('sv');
                         } 
                 } 
             }) 
-player.load({source: sv_channel, mimeType: 'application/m3u8'});
             p2pml.hlsjs.initClapprPlayer(player); 
-
-            player.on(Clappr.Events.PLAYER_STOP, playerStop);
+             player.on(Clappr.Events.PLAYER_STOP, playerStop);
             function playerStop(){
              location.reload();
             }
             player.setVolume(100);
             player.play();
+       
             } else { 
                 document.write("Not supported :("); 
                 }; 
         </script> 
-
 
 <style>
 /* <![CDATA[ */

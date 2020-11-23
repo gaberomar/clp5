@@ -46,19 +46,7 @@ function noleftclick(e)
 } 
 document.oncontextmenu = nocontextmenu;         
 document.onmousedown = noleftclick;     
-</SCRIPT>
-<script type='text/javascript'>
-//<![CDATA[
-document.addEventListener('click', function(evt) {
-  if (evt.target.href && evt.target.href.split('?')[0].endsWith("mpd")) {
-    evt.preventDefault();
-    evt.stopPropagation();
-   Player.extension.sendMessage({command: 'playMpd', url: evt.target.href}, function(response) {});
-  }
-});
-//]]>
-</script>
- 
+</SCRIPT> 
 <SCRIPT LANGUAGE="JavaScript1.1"> 
  
         function right(e) { 
@@ -140,17 +128,13 @@ var topVideo = getQueryString('sv');
                 document.write("Not supported :("); 
                 }; 
         </script> 
-
 <style>
 /* <![CDATA[ */
 
 @font-face {  font-family: 'Cairo'; font-style: normal; font-weight: 300;
 src: local('Cairo Light'), local('Cairo-Light'), url(https://fonts.gstatic.com/s/cairo/v2/fgBJt-qyQFuORpzrx3mX4hTbgVql8nDJpwnrE27mub0.woff2) format('woff2');
   unicode-range: U+0600-06FF, U+200C-200E, U+2010-2011, U+FB50-FDFF, U+FE80-FEFC;}
-
-
-body { overflow: hidden; height: 100%; margin: 0px; padding: 0px; } .twitter-widget { z-index: 70; right: 10px; transition: all .3s; position: absolute; top: 10px; } .media-control[data-media-control] .media-control-background[data-background]::before { font-size: 2.3vw; color: #fff; text-align: center; font-family: Cairo, "Helvetica Neue", sans-serif; font-weight: bold; content: "شاهد جمبع المبارايات علي موقع  |  كوره جي لايف"; } .media-control[data-media-control].media-control-hide .media-control-background[data-background] { opacity: 1!important; } .media-control[data-media-control] .media-control-background[data-background] { height:20%!important; } .media-control[data-media-control] .media-control-layer[data-controls]{height:25px!important;background-color:rgba(0,0,0,.31)}.media-control[data-media-control] .media-control-layer[data-controls] .bar-container[data-seekbar]{top:-14px} .container[data-container] span{display:none} 
-
+body { overflow: hidden; height: 100%; margin: 0px; padding: 0px; } .twitter-widget { z-index: 70; right: 10px; transition: all .3s; position: absolute; top: 10px; } .media-control[data-media-control] .media-control-background[data-background]::before { font-size: 2.2vw; color: #fff; text-align: center; font-family: Cairo, "Helvetica Neue", sans-serif; font-weight: bold; content: "شاهد جمبع المبارايات علي موقع  |  كوره جي لايف"; } .media-control[data-media-control].media-control-hide .media-control-background[data-background] { opacity: 1!important; } .media-control[data-media-control] .media-control-background[data-background] { height:23%!important; } .media-control[data-media-control] .media-control-layer[data-controls]{height:25px!important;background-color:rgba(0,0,0,.31)}.media-control[data-media-control] .media-control-layer[data-controls] .bar-container[data-seekbar]{top:-14px} .container[data-container] span{display:none} 
 #showshare1 {
     position: fixed;
     right: 0;
@@ -218,7 +202,7 @@ textarea {
     background: #b13a26;
 }
 .spinner-three-bounce[data-spinner] {
-    background: url(http://2.bp.blogspot.com/-mB3Ti_3yk08/X7qumds45CI/AAAAAAAAJsc/KNz6ppGmUTUoVcVYHnXAysgiGLCS11dYQCK4BGAYYCw/s1600/ajax-loader.gif) no-repeat center center;
+    background: url(https://3.bp.blogspot.com/-B-2w8Meb_Kc/WbavmEzanfI/AAAAAAAAPAw/W_0ezQ-oKqsTZ4lyNMF_brVLLpOg5QQCgCPcBGAYYCw/s1600/loader.gif) no-repeat center center;
     height: 80px!important;
     width: 100%!important;
     top: 45%!important;
@@ -232,7 +216,6 @@ textarea {
 /* ]]> */
 </style>
 <script type="text/javascript">$(document).keydown(function(t){return 123!=t.keyCode&&!t.ctrlKey&&!t.shiftKey&&void 0}),$(document).on("contextmenu",function(t){t.preventDefault()}),function n(){try{!function t(n){1===(""+n/n).length&&n%20!=0||function(){}.constructor("debugger")(),t(++n)}(0)}catch(t){setTimeout(n,1e3)}}();</script>
-<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="7fd48e4e9b637a138f663eba-|49" defer=""></script>
 
 </body>
 </html>

@@ -1,0 +1,219 @@
+﻿<html><head>
+ <meta content="width=device-width, initial-scale=1" name="viewport"> 
+<style>html
+
+#Player
+{
+    width: 100% !important;
+    height: 100% !important;
+}
+</style></head>
+<meta charset="utf-8">
+
+   <script> 
+function getParam ( sname )
+{
+  var params = location.search.substr(location.search.indexOf("?")+1);
+  var sval =  params.replace("sv=", "");
+  
+  return sval;
+}
+var sv = getParam("sv");
+
+</script>
+ 
+<script type='text/javascript'>
+//<![CDATA[
+document.addEventListener('click', function(evt) {
+  if (evt.target.href && evt.target.href.split('?')[0].endsWith("m3u8")) {
+    evt.preventDefault();
+    evt.stopPropagation();
+   Player.extension.sendMessage({command: 'playM3u8', url: evt.target.href}, function(response) {});
+  }
+});
+//]]>
+</script>
+
+<SCRIPT> 
+ return false; 
+} 
+function noleftclick(e)     
+{ 
+    if (window.Event)     
+    { 
+        if (e.which == 2 || e.which == 3) 
+            return false; 
+    } 
+    else 
+        if (event.button == 2 || event.button == 1) 
+        { 
+            event.cancelBubble = true ; 
+            event.returnValue = false; 
+            return false; 
+        } 
+} 
+document.oncontextmenu = nocontextmenu;         
+document.onmousedown = noleftclick;     
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.1"> 
+ 
+        function right(e) { 
+            if (navigator.appName == 'Netscape' &&  
+                (e.which == 3 || e.which == 2)) 
+            return false; 
+                else if (navigator.appName == 'Microsoft Internet Explorer' &&  
+                (event.button == 2 || event.button == 3)) { 
+                alert(".:H.I.G.H.S.E.C.U.R.I.T.Y:."); 
+            return false; 
+        } 
+            return true; 
+        } 
+        document.onmousedown=right; 
+        document.onmouseup=right; 
+        if (document.layers) window.captureEvents(Event.MOUSEDOWN); 
+        if (document.layers) window.captureEvents(Event.MOUSEUP); 
+        window.onmousedown=right; 
+        window.onmouseup=right; 
+</script>
+    
+
+
+<script src="https://cdn.jsdelivr.net/npm/p2p-media-loader-core@latest/build/p2p-media-loader-core.min.js"></script> 
+<script src="https://cdn.jsdelivr.net/npm/p2p-media-loader-hlsjs@latest/build/p2p-media-loader-hlsjs.min.js"></script> 
+   <script src="https://cdn.jsdelivr.net/npm/clappr@latest"></script>
+ <script src="https://cdn.jsdelivr.net/clappr.level-selector/latest/level-selector.min.js"></script> 
+   <script type="text/javascript"
+        src="//cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js"></script>
+ 
+<style>
+body,html
+{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+}
+
+    </style>
+</head>
+ <body>
+<div id="player" class="player"></div>
+
+        <script> 
+         
+                      if (p2pml.hlsjs.Engine.isSupported()) {
+            var engine = new p2pml.hlsjs.Engine();
+                var player = new Clappr.Player({ 
+                source: sv, 
+                plugins: [LevelSelector], 
+                parentId: '.player', 
+                autoPlay: true, 
+                width: '100%', 
+                height: '100%', 
+                playback: { 
+                        hlsjsConfig: { 
+                            loader: engine.createLoaderClass(), 
+                        } 
+                } 
+            }) 
+                p2pml.hlsjs.initClapprPlayer(player); 
+            } else { 
+                document.write("Not supported :("); 
+                }; 
+        </script> 
+
+<style>
+/* <![CDATA[ */
+
+@font-face {  font-family: 'Cairo'; font-style: normal; font-weight: 300;
+src: local('Cairo Light'), local('Cairo-Light'), url(https://fonts.gstatic.com/s/cairo/v2/fgBJt-qyQFuORpzrx3mX4hTbgVql8nDJpwnrE27mub0.woff2) format('woff2');
+  unicode-range: U+0600-06FF, U+200C-200E, U+2010-2011, U+FB50-FDFF, U+FE80-FEFC;}
+
+body { overflow: hidden; height: 100%; margin: 0px; padding: 0px; } .twitter-widget { z-index: 70; right: 10px; transition: all .3s; position: absolute; top: 10px; } .media-control[data-media-control] .media-control-background[data-background]::before { font-size: 2.3vw; color: #fff; text-align: center; font-family: Cairo, "Helvetica Neue", sans-serif; font-weight: bold; content: "شاهد جمبع المبارايات علي موقع  |  كوره جي لايف"; } .media-control[data-media-control].media-control-hide .media-control-background[data-background] { opacity: 1!important; } .media-control[data-media-control] .media-control-background[data-background] { height:20%!important; } .media-control[data-media-control] .media-control-layer[data-controls]{height:25px!important;background-color:rgba(0,0,0,.31)}.media-control[data-media-control] .media-control-layer[data-controls] .bar-container[data-seekbar]{top:-14px} .container[data-container] span{display:none} 
+
+#showshare1 {
+    position: fixed;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index:9999;
+    text-align: center;
+    background: rgba(0,0,0,0.8);
+    color: #eee;
+}
+
+#showshare10 {
+    position: absolute;
+    top: 50%;
+    margin-top: -90px;
+    right: 0;
+    left: 0;
+}
+.ytp-share-panel-title {
+    font-size: 105%;
+    font-family:"Segoe UI", tahoma;
+    color: #eee;
+    direction: rtl;
+    line-height: 1.3;
+}
+
+.ytp-share-panel-service-button {
+    padding: 3px;
+    width: 38px;
+    height: 38px;
+    display: inline-block;
+}
+.ytp-share-panel-service-buttons {
+    margin-top: 20px;
+    height: 44px;
+}
+
+textarea {
+    display: block;
+    position: relative;
+    border: 1px solid #f1f1f1;
+    margin: 5px auto;
+    border-radius: 5px;
+    width: 90%;
+    height: 34px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    text-align: left;
+    max-width: 400px;
+    overflow-y: hidden;
+}
+.custom-btn {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 5px;
+    background: #dc4537;
+    font-size: 14px;
+    outline: 0 none;
+    color: #fff;
+    border:0;
+    font-family:"Segoe UI", tahoma;
+}
+.custom-btn:hover {
+    background: #b13a26;
+}
+.spinner-three-bounce[data-spinner] {
+    background: url(https://cmsdk.com/images/sinchronize.gif) no-repeat center center;
+    height: 80px!important;
+    width: 100%!important;
+    top: 45%!important;
+}
+
+.spinner-three-bounce[data-spinner]>div {
+    width: 0!important;
+}
+
+
+/* ]]> */
+</style>
+<script type="text/javascript">$(document).keydown(function(t){return 123!=t.keyCode&&!t.ctrlKey&&!t.shiftKey&&void 0}),$(document).on("contextmenu",function(t){t.preventDefault()}),function n(){try{!function t(n){1===(""+n/n).length&&n%20!=0||function(){}.constructor("debugger")(),t(++n)}(0)}catch(t){setTimeout(n,1e3)}}();</script>
+<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="7fd48e4e9b637a138f663eba-|49" defer=""></script>
+
+</body>
+</html>

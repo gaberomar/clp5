@@ -113,12 +113,10 @@ if (p2pml.hlsjs.Engine.isSupported()) {
       var player = new Clappr.Player({ 
 
                 source: sv,
-                mimeType: 'application/m3u8',
+                mimeType: 'application/playM3u8',
                plugins: [LevelSelector], 
                 parentId: '.player', 
                 autoPlay: true, 
-                mute: false, 
-               hideVolumeBar:false, 
                 width: '100%', 
                 height: '100%', 
                 playback: { 

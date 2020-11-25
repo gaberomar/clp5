@@ -101,16 +101,10 @@ body,html
 <div id="player" class="player"></div>
 
       <script type="7fd48e4e9b637a138f663eba-text/javascript">
-      
-           var getQueryString = function ( field, url ) {
-              var href = url ? url : window.location.href;
-              var reg = new RegExp( '[?&]' + field + '=([^&?#]*)', 'i' );
-               var string = reg.exec(href);
-              return string ? string[1] : null;
-               };
-               var topVideo = getQueryString('sv');
-                      if (p2pml.hlsjs.Engine.isSupported()) {
-            var engine = new p2pml.hlsjs.Engine();
+         
+               if (p2pml.hlsjs.Engine.isSupported()) { 
+                var engine = new p2pml.hlsjs.Engine(); 
+                var topVideo = getQueryString('sv');
                 var player = new Clappr.Player({ 
                 source: sv, 
                 plugins: [LevelSelector], 
@@ -122,9 +116,16 @@ body,html
                         hlsjsConfig: { 
                             loader: engine.createLoaderClass(), 
                         } 
-                } 
-            }) 
-                p2pml.hlsjs.initClapprPlayer(player); 
+                     } 
+                 }) 
+        
+            p2pml.hlsjs.initClapprPlayer(player); 
+            player.on(Clappr.Events.PLAYER_STOP, playerStop);
+            function playerStop(){
+             location.reload();
+            }
+            player.setVolume(100);
+            player.play();
             } else { 
                 document.write("Not supported :("); 
                 }; 

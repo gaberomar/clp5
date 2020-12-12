@@ -157,49 +157,34 @@ eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 <script type="7fd48e4e9b637a138f663eba-text/javascript">
 //<![CDATA[ 
 
-var bnarrtgrlUreAesieaSyu = ["tim","e=1","hls","&hl","sst","art","sh","end","e=0","607","&hl","762","520","tim"];
-var sSryrnuirbgelAetreaUa = ["520","&hl","art","hls","tim","607","tim","e=1","sh","end","762","sst","e=0","&hl"];
-var SarnUiurbeyrgtrlasAee = ["e=0","&hl","607","hls","art","tim","e=1","520","tim","sst","sh","762","end","&hl"];
-var UeAagrbnuelyearrSrsti = ["520","sst","art","&hl","e=1","e=0","tim","sh","762","end","&hl","607","hls","tim"];
-var rrSnUseetrbuaaglriyAe = ["762","520","sh","&hl","&hl","607","art","tim","end","sst","tim","e=1","hls","e=0"];
-var yeaeturrnsASilbrgUrea = ["sst","hls","&hl","762","sh","tim","e=1","&hl","end","520","tim","e=0","607","art"];
-var SilgeuArbyrrseanUrtae = ["&hl","sst","tim","520","&hl","end","tim","607","sh","art","hls","e=1","e=0","762"];
-var brerAsreUliynatuagrSa = ["hls","end","tim","e=1","607","762","520","&hl","sst","art","tim","e=0","&hl","sh"];
-var geSrinrsAUrtaeryaubel = ["tim","end","e=1","&hl","sh","e=0","tim","&hl","762","art","520","607","sst","hls"];
-var binyateregarUeuSlrAsr = ["e=1","end","&hl","hls","tim","e=0","520","sh","tim","art","&hl","762","607","sst"];
-var eUrbraetunageAsSrilyr = ["e=0","end","art","e=1","sh","520","hls","&hl","762","tim","607","&hl","sst","tim"];
-var aesuyebeiSrrraAgltUnr = ["sh","e=0","end","tim","607","hls","520","762","&hl","sst","e=1","art","tim","&hl"];
-var bUSlArrntaeruraeiegsy = ["tim","520","end","e=1","sst","&hl","762","&hl","sh","art","e=0","tim","hls","607"];
-var eaSstAeerirgnrlryabuU = ["e=0","607","sh","end","520","art","tim","e=1","sst","&hl","tim","hls","762","&hl"];
-var urrlegUtnrbiASyearaes = ["e=0","520","hls","tim","end","tim","&hl","762","e=1","art","sh","sst","607","&hl"];
-var iuAgrSeeyrUrtelsnraab = ["762","sh","sst","&hl","art","tim","520","tim","e=0","607","end","hls","&hl","e=1"];
-var ebnerrsatlUireSaAyrgu = ["&hl","sst","607","762","hls","end","&hl","tim","520","e=0","art","e=1","sh","tim"];
-var resSArnatuearbyUigerl = ["art","&hl","tim","tim","sst","sh","e=1","end","hls","&hl","e=0","762","520","607"];
-var playerElement = document.getElementById("player");
-var player = new Clappr.Player({
-  parentId: "#Player",
- source: sv,
- height: "100%",
- width: "100%",
- autoPlay: true,
-plugins: [DashShakaPlayback, LevelSelector],
- hlsjsConfig: {
- xhrSetup: function(xhr, url) {
-  xhr.withCredentials = false;
- }
- }
-});
-
-            player.on(Clappr.Events.PLAYER_STOP, playerStop);
+ var player = new Clappr.Player({                 
+                  source: sv,
+                    parentId: '#player',
+                    preload: 'auto',
+                    autoPlay: 'true',
+                    width: '100%',
+                    height: '100%',
+                 mimeType: 'application/x-mpegURL',
+                plugins: [DashShakaPlayback, LevelSelector],
+                   mediacontrol:{seekbar:"#0087DB",buttons:"#0087DB"},
+                   stretching: 'exactfit',
+              DashShakaPlayback,LevelSelectorConfig: {
+                  title: 'Qualidade',
+                 labels: {
+                  2: 'Alta (HD)',
+                  1: 'Média',
+                 0: 'Baixa',
+               } 
+                }
+            });
+  player.on(Clappr.Events.PLAYER_STOP, playerStop);
             function playerStop(){
              location.reload();
             }
-      
-player.load({source: ptgrelUttH(), mimeType: 'application/vnd.apple.mpegurl'});
-player.play();
-function ptgrelUttH() {
-        return(["h","t","t","p",":","\/","\/","7","7",".","w","a","s","2","7",".","x","y","z",":","8","0","8","0","\/","h","l","s","\/","x","j","F","k","t","P","J","8","C","8","2","0","1","9","0","9","0","1",".","m","3","u","8","?"].join("") + brerAsreUliynatuagrSa.join("") + document.getElementById("ntgfiheuiSsBtackra").innerHTML);
-  }
+   
+            player.setVolume(100); // 1%
+            player.play();
+  
              //]]>
           </script>
 

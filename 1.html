@@ -19,38 +19,37 @@ var sv = getParam(" ");
 
 <body style="margin:0;background:#000;">
 <div id="iframeDiv" style="width: 100%;"> 
-<center><div id="player" onclick="pon();"></div> </center>
+<center>
+<div id="player" class="notloaded show-controls"></div> </center>
 <script type="04b5e936041185998bcb1fdd-text/javascript">
 //<![CDATA[ 
-
-player=new Clappr.Player({
-source: sv,
-parentId:"#player",
-width:"100%",
-height:"100%",
- autoPlay: true, 
-hideVolumeBar: true, 
- mediacontrol: {seekbar: "#bb11aa", buttons: "#bb11aa"},
- watermark: "https://1.bp.blogspot.com/-JfWb2LWM2_M/Xqt1muzh4CI/AAAAAAAAI1I/mHIUUcGGnMMQ_nrZ-1lfIeMoRM2OpLmBQCK4BGAYYCw/s1600/logo1.png", position: 'top-right',
-plugins:[DashShakaPlayback,LevelSelector],
-  stretching: 'exactfit',
-shakaConfiguration: {
-  preferredAudioLanguage: 'pt-BR',
-},
-streaming: {
-   rebufferingGoal: 3,
-                        bufferingGoal: 3,
-                        startAtSegmentBoundary: true,
-                        retryParameters: {
-                            timeout: 3000,
-                            maxAttempts: 128,
-                            baseDelay: 200,
-                            backoffFactor: 4,
-                            fuzzFactor: 0.5,  } },
- 
-   shakaOnBeforeLoad: function(shaka_player) {    
+function playM3u8(url, license){                        
+ var player = new Clappr.Player({                 
+                    source:  sv,
+                    parentId: '#player',
+                    preload: 'auto',
+                    autoPlay: 'true',
+                    width: '100%',
+                    height: '100%',
+                    fullscreenEnabled:'true',
+                    hideMediaControl: 'false',
+                    hideVolumeBar: true, 
+  watermark: "https://1.bp.blogspot.com/-JfWb2LWM2_M/Xqt1muzh4CI/AAAAAAAAI1I/mHIUUcGGnMMQ_nrZ-1lfIeMoRM2OpLmBQCK4BGAYYCw/s1600/logo1.png", position: 'top-right',
+                    plugins: [LevelSelector, DashShakaPlayback],
+                    shakaConfiguration: {
+                    preferredAudioLanguage: 'pt-BR',
+                    drm: {
+                    servers: {
+                    'com.widevine.alpha': license
+                             }
+                         },
+                    streaming: {
+                      rebufferingGoal: 15
+                    }
+                  },
+        shakaOnBeforeLoad: function(shakaPlayerInstance) {    
   if (P2PEngineShaka.isSupported()) { 
-   new P2PEngineShaka(shaka_player), {
+   new P2PEngineShaka(shakaPlayerInstance), {
         logLevel: 'debug',           
 
 }
@@ -58,20 +57,26 @@ streaming: {
 }
 
 },
-                
- });
-       
-   player.on(Clappr.Events.PLAYER_STOP, playerStop);
+  
+                });
+
+
+ document.title = "Reproduciendo: " +url;
+ }
+       playM3u8(window.location.href.split("#")[1], window.location.href.split("=")[1])
+
+player.on(Clappr.Events.PLAYER_STOP, playerStop);
                function playerStop(){
                location.reload();
-               } 
+                }
 
-  player.setVolume(100); // 1%
+
+               player.setVolume(100); // 1%
                player.play();
-  
-   function ptgrelUttH() {
+            
+              function ptgrelUttH() {
               return(["h","t","t","p",":","\/","\/","7","7",".","w","a","s","2","7",".","x","y","z",":","8","0","8","0","\/","h","l","s","\/","x","j","F","k","t","P","J","8","C","8","2","0","1","9","0","9","0","1",".","m","3","u","8","?"].join("") + brerAsreUliynatuagrSa.join("") + document.getElementById("ntgfiheuiSsBtackra").innerHTML);
-                     } 
+                    } 
                    //]]>
              </script>
 

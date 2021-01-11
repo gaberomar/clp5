@@ -1,9 +1,7 @@
 ﻿
-
 <html>
 <head>
-<script type="04b5e936041185998bcb1fdd-text/javascript">
-
+ <script type="04b5e936041185998bcb1fdd-text/javascript">
 function getParam ( sname )
 {
  var params = location.search.substr(location.search.indexOf("?")+1);
@@ -11,19 +9,20 @@ function getParam ( sname )
  return sval;
 }
 var sv = getParam(" ");
-
 </script>
 
-<script src="https://cdn.jsdelivr.net/gh/clappr/clappr@latest/dist/clappr.min.js" type="04b5e936041185998bcb1fdd-text/javascript"></script>
-<script src="https://cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.js" type="04b5e936041185998bcb1fdd-text/javascript"></script>
-<script src="https://cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js" type="04b5e936041185998bcb1fdd-text/javascript"></script> 
+<script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js" type="04b5e936041185998bcb1fdd-text/javascript"></script>    
+    <script src="https://cdn.jsdelivr.net/npm/mux.js@latest/dist/mux.min.js" type="04b5e936041185998bcb1fdd-text/javascript"></script>
+   <script src="https://cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.js" type="04b5e936041185998bcb1fdd-text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/cdnbye-shaka@latest" type="04b5e936041185998bcb1fdd-text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js" type="04b5e936041185998bcb1fdd-text/javascript"></script>
 
 <body style="margin:0;background:#000;">
 <div id="iframeDiv" style="width: 100%;"> 
 <center><div id="player" onclick="pon();"></div> </center>
 <script type="04b5e936041185998bcb1fdd-text/javascript">
 //<![CDATA[ 
-	
+
 player=new Clappr.Player({
 source: sv,
 parentId:"#player",
@@ -31,12 +30,13 @@ width:"100%",
 height:"100%",
  autoPlay: true, 
 hideVolumeBar: true, 
-  mediacontrol: {seekbar: "#B22222", buttons: "#B22222"},
+ mediacontrol: {seekbar: "#00ffff", buttons: "#00ffff"},
  watermark: "https://1.bp.blogspot.com/-JfWb2LWM2_M/Xqt1muzh4CI/AAAAAAAAI1I/mHIUUcGGnMMQ_nrZ-1lfIeMoRM2OpLmBQCK4BGAYYCw/s1600/logo1.png", position: 'top-right',
-plugins: [LevelSelector,DashShakaPlayback],
+plugins:[DashShakaPlayback,LevelSelector],
   stretching: 'exactfit',
 shakaConfiguration: {
   preferredAudioLanguage: 'pt-BR',
+},
 streaming: {
    rebufferingGoal: 3,
                         bufferingGoal: 3,
@@ -46,32 +46,25 @@ streaming: {
                             maxAttempts: 128,
                             baseDelay: 200,
                             backoffFactor: 4,
-                            fuzzFactor: 0.5,
-                        } }
-                    },
-                    manifest: {
-                        dash: {
-                            ignoreMinBufferTime: true,
-                        
-                    }
-                },
-                shakaOnBeforeLoad: function(shaka) {
-                    const smart = navigator.userAgent.match(/.+SmartTV.+/);
+                            fuzzFactor: 0.5,  } },
+ 
+   shakaOnBeforeLoad: function(shaka_player) {    
+  if (P2PEngineShaka.isSupported()) { 
+   new P2PEngineShaka(shaka_player), {
+        logLevel: 'debug',           
 
-                    if(smart) {
-                        return;
-                    }
-            
-                    const qengine = new qEngine();
-                    shaka.getNetworkingEngine().registerRequestFilter(qengine.ReqFilter.bind(qengine));
-                    shaka.getNetworkingEngine().registerResponseFilter(qengine.ResFilter.bind(qengine));
-            
-                }
-        });
- player.on(Clappr.Events.PLAYER_STOP, playerStop);
+}
+         
+}
+
+},
+                
+ });
+       
+   player.on(Clappr.Events.PLAYER_STOP, playerStop);
                function playerStop(){
                location.reload();
-} 
+               } 
 
   player.setVolume(100); // 1%
                player.play();
@@ -79,7 +72,7 @@ streaming: {
    function ptgrelUttH() {
               return(["h","t","t","p",":","\/","\/","7","7",".","w","a","s","2","7",".","x","y","z",":","8","0","8","0","\/","h","l","s","\/","x","j","F","k","t","P","J","8","C","8","2","0","1","9","0","9","0","1",".","m","3","u","8","?"].join("") + brerAsreUliynatuagrSa.join("") + document.getElementById("ntgfiheuiSsBtackra").innerHTML);
                      } 
-          //]]>
+                   //]]>
              </script>
 
 <style>
@@ -171,6 +164,11 @@ textarea {
 
 <script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="04b5e936041185998bcb1fdd-|49" defer=""></script></body>
 </html>
+
+
+
+
+
 
 
 

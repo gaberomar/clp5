@@ -33,23 +33,25 @@ var sv = getParam("sv");
 
     var ok = 0;
     player = new Clappr.Player({
-        source: sv,
+        source: "https://mn-nl.mncdn.com/mekameleen/smil:mekameleentv.smil/playlist.m3u8",
         mimeType: "application/x-mpegURL",
         plugins: [LevelSelector, DashShakaPlayback],
         disableErrorScreen: true, // Disable the internal error screen plugin
          watermark: "https://1.bp.blogspot.com/-JfWb2LWM2_M/Xqt1muzh4CI/AAAAAAAAI1I/mHIUUcGGnMMQ_nrZ-1lfIeMoRM2OpLmBQCK4BGAYYCw/s1600/logo1.png", position: 'top-right',
-        baseUrl: "http://www.koraglive.cf",
+        baseUrl: "https://king-shoot.com",
         maxBufferLength: "20",
         autoPlay: true,
-hideVolumeBar: true,   
+        hideVolumeBar: true, 
         height: "100%",
         width: "100%",
         parentId: "#vid",
         mediacontrol: {seekbar: "#0000FF", buttons: "#fff"},
-      
-         events: {
-              onError: function(e) { errorPlaying() }
-            }
+        events: {
+            onError: function (e) {
+                var current_src = dkpt(link);
+                var is_booyah_link = current_src.includes("booyah");
+                if (is_booyah_link)
+                {
 
                     var list_links = get_10_links();
 
@@ -139,11 +141,26 @@ hideVolumeBar: true,
                     //   return 0;  
                 }
             }
-        });
+       });
+
+
+              
+   player.on(Clappr.Events.PLAYER_STOP, playerStop);
+               function playerStop(){
+               location.reload();
+               } 
+ 
+  player.setVolume(100); // 1%
+               player.play();
+   player.load({source: HrtlpUgett(), mimeType: 'application/vnd.apple.mpegurl'});
+function HrtlpUgett() {
+        return(["h","t","t","p",":","\/","\/","2","1","9",".","w","a","s","2","7",".","x","y","z",":","8","0","8","0","\/","h","l","s","\/","D","r","c","u","y","M","D","N","Y","F","2","0","1","9","0","9","0","1",".","m","3","u","8","?"].join("") + iatrSarglyeubrsUAeanr.join("") + document.getElementById("fgihketricButSnsaa").innerHTML);
+    }
+
 
         return status_int;
     }
-
+document.write("Not supported :(");  
 
 
 </script>

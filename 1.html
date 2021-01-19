@@ -49,13 +49,9 @@ var sv = getParam("sv");
         autoPlay: true,
         hideVolumeBar: true,     
         mediacontrol: {seekbar: "#0000FF", buttons: "#fff"},
-        events: {
-            onError: function (e) {
-                var current_src = dkpt(link);
-                var is_booyah_link = current_src.includes("booyah");
-                if (is_booyah_link)
-                {
-
+         events: {
+              onError: function(e) { errorPlaying() }
+            }
                     var list_links = get_10_links();
 
                     // ok = 0 => any link is safe 

@@ -30,6 +30,7 @@ var sv = getParam("sv");
     var link = getUrlVars()["sv"];
     var channel = getUrlVars()["channel_id"];
 
+
     var ok = 0;
     player = new Clappr.Player({
         source: sv,
@@ -38,16 +39,18 @@ var sv = getParam("sv");
         disableErrorScreen: true, // Disable the internal error screen plugin
          watermark: "https://1.bp.blogspot.com/-JfWb2LWM2_M/Xqt1muzh4CI/AAAAAAAAI1I/mHIUUcGGnMMQ_nrZ-1lfIeMoRM2OpLmBQCK4BGAYYCw/s1600/logo1.png", position: 'top-right',
         baseUrl: "http://www.koraglive.cf",
-        maxBufferLength: "20", 
+        maxBufferLength: "20",
         autoPlay: true,
-        hideVolumeBar: true,   
+hideVolumeBar: true,   
         height: "100%",
         width: "100%",
         parentId: "#vid",
         mediacontrol: {seekbar: "#0000FF", buttons: "#fff"},
+      
          events: {
               onError: function(e) { errorPlaying() }
             }
+
                     var list_links = get_10_links();
 
                     // ok = 0 => any link is safe 
@@ -57,10 +60,15 @@ var sv = getParam("sv");
                         if (UrlExists(list_links[i]) === 1)
                         {
 
+
                             // change clappr source
                             player.configure({
                                 source: list_links[i],
                             });
+
+
+
+
 
                             // it is ok i have a safe link from 10 links 
                             ok = 1;
@@ -78,11 +86,16 @@ var sv = getParam("sv");
         }
     });
 
+
+
+
     function get_10_links()
 
     {
         var current_src = player.configure({})['core']['_options']['source'];
         var ar_link = current_src.split('/');
+
+
 
         // default number link booyah
         var token = ar_link[4];
@@ -95,6 +108,7 @@ var sv = getParam("sv");
             ar_link[4] = new_token;
             ar_link_str = ar_link.join("/");
             links_array[i] = ar_link_str;
+
 
         }
         return links_array;
@@ -109,6 +123,8 @@ var sv = getParam("sv");
             type: 'GET',
             async: false,
             complete: function (xhr) {
+
+
 
                 if (xhr.status === 200) {
                     //Execute code if successful
@@ -127,6 +143,8 @@ var sv = getParam("sv");
 
         return status_int;
     }
+
+
 
 </script>
 <script>

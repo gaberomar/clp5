@@ -36,7 +36,6 @@ var player = new Clappr.Player({
 source: sv, 
  height: "100%",
  width: "100%",
- parentId: '#player',
  autoPlay: true,
  hideVolumeBar: true,
  mimeType: 'application/vnd.apple.mpegurl',
@@ -76,7 +75,7 @@ mediacontrol: {seekbar:"#ff0000",buttons:"#ff0000"},
           shakaOnBeforeLoad: function(shaka_player) {
             // shaka_player.getNetworkingEngine().registerRequestFilter() ...
           },
-          
+          parentId: '#player',
         });
 
 

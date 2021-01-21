@@ -27,7 +27,8 @@ var sv = getParam("sv");
 <script>
 var playerElement = document.getElementById("player");
 var player = new Clappr.Player({
-    mediacontrol: {seekbar:"#ff0000",buttons:"#ff0000"},
+	source: sv, 
+ mediacontrol: {seekbar:"#ff0000",buttons:"#ff0000"},
  height: "100%",
  width: "100%",
   plugins: [LevelSelector, DashShakaPlayback], 

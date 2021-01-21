@@ -67,17 +67,15 @@ mediacontrol: {seekbar:"#ff0000",buttons:"#ff0000"},
 	}
  }
 
-});
-player.attachTo(playerElement);
-player.load({
-source: sv, 
- mimeType: 'application/vnd.apple.mpegurl'
 
 });
+
 
  player.on(Clappr.Events.PLAYER_STOP, playerStop);
                function playerStop(){
                location.reload();
+player.play();
+
 
  }
 
@@ -87,10 +85,9 @@ function HrtlpUgett() {
     }
 document.write("Not supported :("); 
  
-player.play();
 
 </script>
-
+	
 <style>
 /* <![CDATA[ */
 

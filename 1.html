@@ -29,21 +29,20 @@ var sv = getParam("sv");
 </script>
 <div id='player'></div>
 <script>
-var playerElement = document.getElementById("player");
+	
 var player = new Clappr.Player({
 source: sv, 
- parentId: '#player',
- mediacontrol: {seekbar:"#ff0000",buttons:"#ff0000"},
  height: "100%",
  width: "100%",
+ parentId: '#player',
  autoPlay: true,
- hideVolumeBar: true,   
+ hideVolumeBar: true,
+mediacontrol: {seekbar:"#ff0000",buttons:"#ff0000"},   
   stretching: 'exactfit',
- plugins: [LevelSelector, CDNByeClapprPlugin, DashShakaPlayback],
+  plugins: [LevelSelector, CDNByeClapprPlugin, DashShakaPlayback], 
     events: {
               onError: function(e) { errorPlaying()} 
            },
-
    shakaConfiguration: {
         preferredAudioLanguage: 'pt-BR',
                       rebufferingGoal: 6,
@@ -59,18 +58,14 @@ source: sv,
           shakaOnBeforeLoad: function(shaka_player) {
             // shaka_player.getNetworkingEngine().registerRequestFilter() ...
                },   
-
  hlsjsConfig: {
 	p2pConfig: {
             wsSignalerAddr: 'wss://free.freesignal.net',
-        
         },
 	xhrSetup: function(xhr, url) {
 		xhr.withCredentials = false;
 	}
- 
  }
-
 
 });
 player.attachTo(playerElement);

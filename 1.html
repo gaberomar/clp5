@@ -1,22 +1,11 @@
 
-
-
 <html>
-
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
-	<body>
-
-
-
-<body style="margin:0px;padding:0px;">
-<title>Watch Live Boxing Streaming Free Online</title>
-
+   
 <script type="text/javascript" src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/clappr.level-selector/latest/level-selector.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/cdnbye@latest/dist/hlsjs-p2p-engine.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/cdnbye@latest/dist/clappr-plugin.min.js"></script>	
+<script src="https://cdn.jsdelivr.net/npm/cdnbye@latest/dist/clappr-plugin.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.js" type="text/javascript"></script> 
 <script>
 function getParam ( sname )
@@ -27,9 +16,13 @@ function getParam ( sname )
 }
 var sv = getParam("sv");
 </script>
+	 </head>
+<body style="margin:0;background:#000;">
+<div id="iframeDiv" style="width: 100%;"> 
+<body onload="init()">
 <div id='player'></div>
 <script>
-	
+
 var player = new Clappr.Player({
 source: sv, 
  height: "100%",
@@ -37,13 +30,14 @@ source: sv,
  parentId: '#player',
  autoPlay: true,
  hideVolumeBar: true,
-mimeType: 'application/vnd.apple.mpegurl',
+ mimeType: 'application/vnd.apple.mpegurl',
 mediacontrol: {seekbar:"#ff0000",buttons:"#ff0000"},   
   stretching: 'exactfit',
   plugins: [LevelSelector, CDNByeClapprPlugin, DashShakaPlayback], 
     events: {
               onError: function(e) { errorPlaying()} 
            },
+
    shakaConfiguration: {
         preferredAudioLanguage: 'pt-BR',
                       rebufferingGoal: 6,
@@ -59,13 +53,16 @@ mediacontrol: {seekbar:"#ff0000",buttons:"#ff0000"},
           shakaOnBeforeLoad: function(shaka_player) {
             // shaka_player.getNetworkingEngine().registerRequestFilter() ...
                },   
+
  hlsjsConfig: {
 	p2pConfig: {
             wsSignalerAddr: 'wss://free.freesignal.net',
+        
         },
 	xhrSetup: function(xhr, url) {
 		xhr.withCredentials = false;
 	}
+ 
  }
 
 
@@ -88,7 +85,8 @@ document.write("Not supported :(");
  
 
 </script>
-	
+
+
 <style>
 /* <![CDATA[ */
 
@@ -175,15 +173,6 @@ textarea {
 /* ]]> */
 </style>
 
- <!-- Histats.com  START  (aync)-->
-<script type="text/javascript">var _Hasync= _Hasync|| [];
-_Hasync.push(['Histats.start', '1,4465256,4,0,0,0,00010000']);
-_Hasync.push(['Histats.fasi', '1']);
-_Hasync.push(['Histats.track_hits', '']);
-(function() {
-var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
-hs.src = ('//s10.histats.com/js15_as.js');
-(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
-})();</script>
-<noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?4465256&101" alt="web counter" border="0"></a></noscript>
-<!-- Histats.com  END  -->
+</body>
+</html>
+

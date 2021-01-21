@@ -28,10 +28,15 @@ var sv = getParam("sv");
 var playerElement = document.getElementById("player");
 var player = new Clappr.Player({
 	source: sv, 
-  parentId: "#player",
+	mimeType: 'application/vnd.apple.mpegurl',
+  parentId: '#player',
  mediacontrol: {seekbar:"#ff0000",buttons:"#ff0000"},
- height: "100%",
- width: "100%",
+                 height: '100%',
+                 width: '100%',
+                 parentId: "#player",
+                 autoPlay: true,
+                 hideVolumeBar: true,   
+                 plugins: [CDNByeClapp
   plugins: [LevelSelector, DashShakaPlayback], 
   events: {
               onError: function(e) { errorPlaying() }
@@ -64,11 +69,7 @@ var player = new Clappr.Player({
  }
       
 });
-player.attachTo(playerElement);
-player.load({
-source: sv, 
-mimeType: 'application/vnd.apple.mpegurl'
-});
+
  player.on(Clappr.Events.PLAYER_STOP, playerStop);
                function playerStop(){
                location.reload();

@@ -18,7 +18,7 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/clappr.level-selector/latest/level-selector.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/cdnbye@latest/dist/hlsjs-p2p-engine.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/cdnbye@latest/dist/clappr-plugin.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.js"></script>
+
 <script>
 function getParam ( sname )
 {
@@ -43,7 +43,7 @@ source: sv,
  mimeType: 'application/vnd.apple.mpegurl',
 mediacontrol: {seekbar:"#ff0000",buttons:"#ff0000"},   
   stretching: 'exactfit',
-  plugins: [LevelSelector, CDNByeClapprPlugin, DashShakaPlayback], 
+  plugins: [LevelSelector, CDNByeClapprPlugin], 
     events: {
               onError: function(e) { errorPlaying()} 
            },

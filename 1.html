@@ -1,8 +1,9 @@
-
+  
 <html>
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
 <script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/clappr.level-selector/latest/level-selector.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/cdnbye@latest/dist/hlsjs-p2p-engine.min.js"></script>
@@ -19,22 +20,24 @@ var sv = getParam("sv");
 </script>
 
 	 </head>
+
+<body onload="init()">
 <body style="margin:0;background:#000;">
 <div id="iframeDiv" style="width: 100%;"> 
-<body onload="init()">
-
+	
 <div id='player'></div>
 <script>
 
 var player = new Clappr.Player({
-source: sv, 
+loadScript: "https://www.janjuaplayer.com/resources/scripts/vp/vidictPeer_server_sharedcdn.min.js?id=692_1",
+source: "https://mn-nl.mncdn.com/mekameleen/smil:mekameleentv.smil/playlist.m3u8", 
  height: "100%",
  width: "100%",
  parentId: '#player',
  autoPlay: true,
  hideVolumeBar: true,
  mimeType: 'application/vnd.apple.mpegurl',
-mediacontrol: {seekbar:"#ff0000",buttons:"#ff0000"},   
+mediacontrol: {seekbar:"#FF6699",buttons:"#FF6699"},   
   stretching: 'exactfit',
   plugins: [LevelSelector, DashShakaPlayback], 
     events: {
@@ -44,11 +47,11 @@ mediacontrol: {seekbar:"#ff0000",buttons:"#ff0000"},
  hlsjsConfig: {
 	p2pConfig: {
             wsSignalerAddr: 'wss://free.freesignal.net',
-        
+        }
         },
 	xhrSetup: function(xhr, url) {
 		xhr.withCredentials = false;
-	}
+	
 
       },
 
@@ -178,6 +181,7 @@ textarea {
 
 </body>
 </html>
+
 
 
 

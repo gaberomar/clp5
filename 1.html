@@ -114,8 +114,7 @@ var sv = getParam("sv");
                },
   watermark: "http://1.bp.blogspot.com/-AmhQ3RR0OdU/YBcLcHZXsWI/AAAAAAAALVA/ZDss1UljVv8Z0HOTKc-_hiKd61BVl4H9QCK4BGAYYCw/s1600/k1.png", position: 'bottom-left',
  stretching: 'exactfit',
-plugins: {core: [LevelSelector, ChromecastPlugin],  playback:[DashShakaPlayback, Clappr.FlasHLS], },
- 
+  plugins: [DashShakaPlayback, LevelSelector, ChromecastPlugin],
        events: {
               onError: function(e) { errorPlaying() }
             },

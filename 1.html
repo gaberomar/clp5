@@ -2,6 +2,22 @@
 <html>
 <head>
 
+<<script type="4b8586dcdf28bea6e4a88742-text/javascript" src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.js" type="4b8586dcdf28bea6e4a88742-text/javascript"></script>
+<script type="4b8586dcdf28bea6e4a88742-text/javascript" src="https://cdn.jsdelivr.net/clappr.level-selector/latest/level-selector.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clappr-chromecast-plugin@latest/dist/clappr-chromecast-plugin.min.js" type="4b8586dcdf28bea6e4a88742-text/javascript"></script>
+<script type="4b8586dcdf28bea6e4a88742-text/javascript">
+function getParam ( sname )
+{
+  var params = location.search.substr(location.search.indexOf("?")+1);
+  var sval =  params.replace("sv=", "");
+  
+  return sval;
+}
+var sv = getParam("sv");
+
+</script>
+	
 <script type="4b8586dcdf28bea6e4a88742-text/javascript">
  function setCookie(cname, cvalue, exdays) {
  var d = new Date();
@@ -75,21 +91,6 @@
  }
  </script>
 
-<<script type="4b8586dcdf28bea6e4a88742-text/javascript" src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.js" type="4b8586dcdf28bea6e4a88742-text/javascript"></script>
-<script type="4b8586dcdf28bea6e4a88742-text/javascript" src="https://cdn.jsdelivr.net/clappr.level-selector/latest/level-selector.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/clappr-chromecast-plugin@latest/dist/clappr-chromecast-plugin.min.js" type="4b8586dcdf28bea6e4a88742-text/javascript"></script>
-<script type="4b8586dcdf28bea6e4a88742-text/javascript">
-function getParam ( sname )
-{
-  var params = location.search.substr(location.search.indexOf("?")+1);
-  var sval =  params.replace("sv=", "");
-  
-  return sval;
-}
-var sv = getParam("sv");
-
-</script>
 	 </head>
 
 <body onload="init()">
@@ -101,7 +102,7 @@ var sv = getParam("sv");
       var player = new Clappr.Player(
         {
           source: sv,
-          width:"100%",height:"95%", crossOrigin: "anonymous", hideVolumeBar: true, 
+          width:"100%",height:"93%", crossOrigin: "anonymous", hideVolumeBar: true, 
          watermark: "http://1.bp.blogspot.com/-AmhQ3RR0OdU/YBcLcHZXsWI/AAAAAAAALVA/ZDss1UljVv8Z0HOTKc-_hiKd61BVl4H9QCK4BGAYYCw/s1600/k1.png", position: 'bottom-left',
           plugins: [DashShakaPlayback,LevelSelector,ChromecastPlugin],
           shakaConfiguration: {

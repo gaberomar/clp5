@@ -1,4 +1,5 @@
 
+
 <html>
 <head>
 <style type="text/css">body{margin:0 auto;}</style>
@@ -104,9 +105,22 @@ var sv = getParam("sv");
       var player = new Clappr.Player(
         {
           source: sv,
-          width:"100%",height:"100%", crossOrigin: "anonymous", hideVolumeBar: true, 
-         watermark: "http://1.bp.blogspot.com/-AmhQ3RR0OdU/YBcLcHZXsWI/AAAAAAAALVA/ZDss1UljVv8Z0HOTKc-_hiKd61BVl4H9QCK4BGAYYCw/s1600/k1.png", position: 'bottom-left',
-          plugins: [DashShakaPlayback,LevelSelector,ChromecastPlugin],
+  watermark: "http://1.bp.blogspot.com/-AmhQ3RR0OdU/YBcLcHZXsWI/AAAAAAAALVA/ZDss1UljVv8Z0HOTKc-_hiKd61BVl4H9QCK4BGAYYCw/s1600/k1.png", position: 'bottom-left',
+                 height: '100%',
+                 width: '100%',
+                 parentId: "#player",
+                 autoPlay: true,
+                 hideVolumeBar: true, 
+	         mimeType: "application/m3u8",
+ plugins: {core: [LevelSelector,ChromecastPlugin],
+ playback:[ DashShakaPlayback, ], 
+},
+
+      stretching: 'exactfit', 
+       events: {
+              onError: function(e) { errorPlaying() }
+            },
+        
           shakaConfiguration: {
             preferredAudioLanguage: 'pt-BR',
             streaming: {
@@ -159,7 +173,7 @@ jw-controls.jw-reseth:before{content:'';z-index:9;position:absolute;right:0;left
 @font-face {  font-family: 'Cairo'; font-style: normal; font-weight: 300;
 src: local('Cairo Light'), local('Cairo-Light'), url(https://fonts.gstatic.com/s/cairo/v2/fgBJt-qyQFuORpzrx3mX4hTbgVql8nDJpwnrE27mub0.woff2) format('woff2');
   unicode-range: U+0600-06FF, U+200C-200E, U+2010-2011, U+FB50-FDFF, U+FE80-FEFC;}
-body { overflow: hidden; height: 100%; margin: 0px; padding: 0px; } .twitter-widget { z-index: 70; right: 10px; transition: all .3s; position: absolute; top: 10px; } .media-control[data-media-control] .media-control-background[data-background]::before { font-size: 2.2vw; color: #fff; text-align: center; font-family: Cairo, "Helvetica Neue", sans-serif; font-weight: bold; content: "شاهد جمبع المبارايات علي موقع  |  كوره جي لايف"; } .media-control[data-media-control].media-control-hide .media-control-background[data-background] { opacity: 1!important; } .media-control[data-media-control] .media-control-background[data-background] { height:22%!important; } .media-control[data-media-control] .media-control-layer[data-controls]{height:25px!important;background-color:rgba(0,0,0,.31)}.media-control[data-media-control] .media-control-layer[data-controls] .bar-container[data-seekbar]{top:-14px} .container[data-container] span{display:none} 
+body { overflow: hidden; height: 100%; margin: 0px; padding: 0px; } .twitter-widget { z-index: 70; right: 10px; transition: all .3s; position: absolute; top: 10px; } .media-control[data-media-control] .media-control-background[data-background]::before { font-size: 2vw; color: #fff; text-align: center; font-family: Cairo, "Helvetica Neue", sans-serif; font-weight: bold; content: "شاهد جمبع المبارايات علي موقع  |  كوره جي لايف"; } .media-control[data-media-control].media-control-hide .media-control-background[data-background] { opacity: 1!important; } .media-control[data-media-control] .media-control-background[data-background] { height:22%!important; } .media-control[data-media-control] .media-control-layer[data-controls]{height:25px!important;background-color:rgba(0,0,0,.31)}.media-control[data-media-control] .media-control-layer[data-controls] .bar-container[data-seekbar]{top:-14px} .container[data-container] span{display:none} 
 #showshare1 {
     position: fixed;
     right: 0;

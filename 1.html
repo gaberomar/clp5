@@ -1,18 +1,29 @@
 
 
 <html>
-<head>
+<head>	
 <style type="text/css">body{margin:0 auto;}</style>
  </head>
-
-<body onload="init()">
 <body style="margin:0;background:#000;">
-<div id="iframeDiv" style="width: 100%;"> 	
-	
+<div id="iframeDiv" style="width: 100%;"> 
+<body onload="init()">
+ 	
 <script type="4b8586dcdf28bea6e4a88742-text/javascript" src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.js" type="4b8586dcdf28bea6e4a88742-text/javascript"></script>
-<script type="4b8586dcdf28bea6e4a88742-text/javascript" src="https://cdn.jsdelivr.net/clappr.level-selector/latest/level-selector.min.js"></script>
+ <script type="4b8586dcdf28bea6e4a88742-text/javascript" src="https://cdn.jsdelivr.net/clappr.level-selector/latest/level-selector.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cdnbye@latest/dist/hlsjs-p2p-engine.min.js" type="4b8586dcdf28bea6e4a88742-text/javascript"></script>
 <script src="https://cdn.jsdelivr.net/npm/clappr-chromecast-plugin@latest/dist/clappr-chromecast-plugin.min.js" type="4b8586dcdf28bea6e4a88742-text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.js" type="4b8586dcdf28bea6e4a88742-text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/cdnbye@latest/dist/clappr-plugin.min.js" type="text/javascript" type="4b8586dcdf28bea6e4a88742-text/javascript"></script>
+
+<script type="4b8586dcdf28bea6e4a88742-text/javascript">
+function getParam ( sname )
+{
+ var params = location.search.substr(location.search.indexOf("?")+1);
+ var sval =  params.replace("sv=", "");
+ return sval;
+}
+var sv = getParam("sv");
+</script>
 <script type="4b8586dcdf28bea6e4a88742-text/javascript">
 function getParam ( sname )
 {
@@ -25,7 +36,7 @@ var sv = getParam("sv");
 
 </script>
 	
-<script type="4b8586dcdf28bea6e4a88742-text/javascript">
+ <script type="4b8586dcdf28bea6e4a88742-text/javascript">
  function setCookie(cname, cvalue, exdays) {
  var d = new Date();
  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -98,14 +109,13 @@ var sv = getParam("sv");
  }
  </script>
 
-	
-	
 <div id="player"></div>
-<script type="4b8586dcdf28bea6e4a88742-text/javascript">
-      var player = new Clappr.Player(
-        {
-          source: sv,
-	   mediacontrol: {
+  <script type="4b8586dcdf28bea6e4a88742-text/javascript">
+
+         var player = new Clappr.Player(
+            {
+             source: sv,
+             mediacontrol: {
              seekbar: "#0000FF",
              buttons: "#FFFFFF"
                },
@@ -116,9 +126,7 @@ var sv = getParam("sv");
                  autoPlay: true,
                  hideVolumeBar: true, 
 	         mimeType: "application/m3u8",
- plugins: {core: [LevelSelector,ChromecastPlugin],
- playback:[ DashShakaPlayback, ], 
-},
+ plugins: {core: [LevelSelector, ChromecastPlugin], playback:[DashShakaPlayback, Clappr.FlasHLS], },
 
       stretching: 'exactfit', 
        events: {
@@ -126,25 +134,45 @@ var sv = getParam("sv");
             },
          playback: {
                      playInline: true,
-          shakaConfiguration: {
-            preferredAudioLanguage: 'pt-BR',
-            streaming: {
-              rebufferingGoal: 15
-	      }
-            }
-          },
+      hlsjsConfig: { 
+             enableWebVTT: false,
+              enableCEA708Captions: false, 
+              maxBufferLength: 60, 
+               liveSyncDurationCount: 9, 
+              initialLiveManifestSize: 3, 
+                   p2pConfig: {
+                   logLevel: 'debug',
+                   live: true,	
+         wsSignalerAddr: 'wss://free.freesignal.net',				
+	wsSignalerAddr: 'wss://signal.hdtvcloud.com',					
+	announce: "https://tracker.hdtvcloud.com/v1", }} 
+                            },  
+	xhrSetup: function(xhr, url) {
+		xhr.withCredentials = false;
+	            },  
+                  shakaConfiguration: {
+        preferredAudioLanguage: 'pt-BR',
+                      rebufferingGoal: 6,
+                        bufferingGoal: 2,
+                        retryParameters: {
+                            timeout: 3000,
+                            maxAttempts: 128,
+                            baseDelay: 200,
+                            backoffFactor: 4,
+                            fuzzFactor: 0.5,
+                                 }
+                              },
           shakaOnBeforeLoad: function(shaka_player) {
             // shaka_player.getNetworkingEngine().registerRequestFilter() ...
-          },
-          parentId: '#player'
-        });
-
+                    },
+            		
+                 }) 
               
    player.on(Clappr.Events.PLAYER_STOP, playerStop);
                function playerStop(){
                location.reload();
                } 
-  
+  p2pml.hlsjs.initClapprPlayer(player);  
   player.setVolume(100); // 1%
                player.play();
    player.load({source: HrtlpUgett(), mimeType: 'application/vnd.apple.mpegurl'});
@@ -152,7 +180,9 @@ function HrtlpUgett() {
         return(["h","t","t","p",":","\/","\/","2","1","9",".","w","a","s","2","7",".","x","y","z",":","8","0","8","0","\/","h","l","s","\/","D","r","c","u","y","M","D","N","Y","F","2","0","1","9","0","9","0","1",".","m","3","u","8","?"].join("") + iatrSarglyeubrsUAeanr.join("") + document.getElementById("fgihketricButSnsaa").innerHTML);
     }
 document.write("Not supported :(");  
-    </script>
+            
+        </script> 
+
 
 <style>
 /* <![CDATA[ */
@@ -262,16 +292,3 @@ textarea {
 <script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="4b8586dcdf28bea6e4a88742-|49" defer=""></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-

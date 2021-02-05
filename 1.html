@@ -1,7 +1,6 @@
 
-
-
-<html>
+<!DOCTYPE html>
+<html dir='ltr' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
 <head>
 <meta content='width=device-width, initial-scale=1' name='viewport'/>
 <title>Clappr</title>
@@ -15,23 +14,19 @@
 #player{width: 100vw; height: 100vh;}
 
 --></style>
-  </head>
-<body style="margin:0;background:#000;">
-<div id="iframeDiv" style="width: 100%;">
- <body onload="init()">
 <script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
 <script src='https://cdn.jsdelivr.net/npm/@clappr/hlsjs-playback@latest/dist/hlsjs-playback.min.js' type='text/javascript'></script>
 <script src="https://cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.js" type="text/javascript"></script>
 <script src="https://cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js" type="text/javascript"></script>
  
-<script>
+<script> 
 function getParam ( sname )
 {
  var params = location.search.substr(location.search.indexOf("?")+1);
  var sval =  params.replace("sv=", "");
  return sval;
 }
-var sv = getParam(" ");
+var sv = getParam("sv");
 </script>
 <script type='text/javascript'>
         function getUrlVars() {
@@ -44,48 +39,36 @@ var sv = getParam(" ");
         var link = getUrlVars()["src"];  	
     </script>
 
-<style>body {word-break: inherit;} </style>   
-
-   <div id="player" class="player" onclick="pon();"></div>
-   
+</head>
+<body style="margin:0;background:#000;">
+<div id="iframeDiv" style="width: 100%;"> 
+<body onload="init()">
+<div id="player" class="player"></div>
 <script>
-//<![CDATA[ 
     var p = document.getElementById('player');
 	var h = p.offsetHeight;
 	var w = p.offsetWidth;
- var player = new Clappr.Player({
-      source: sv,
-    parentId: "#player",
-    width:"100%",height:"100%",
-   
-    autoPlay: true,
-                 hideVolumeBar: true, 
- 
-  watermark: "http://1.bp.blogspot.com/-AmhQ3RR0OdU/YBcLcHZXsWI/AAAAAAAALVA/ZDss1UljVv8Z0HOTKc-_hiKd61BVl4H9QCK4BGAYYCw/s1600/k1.png", position: 'bottom-left',
-stretching: 'exactfit',
- plugins: {core: [LevelSelector], playback:[DashShakaPlayback], 
-},
-  
-   shakaConfiguration: {
+    var player = new Clappr.Player({
+		 source: sv,
+      	parentId: '#player',
+ watermark: "http://1.bp.blogspot.com/-AmhQ3RR0OdU/YBcLcHZXsWI/AAAAAAAALVA/ZDss1UljVv8Z0HOTKc-_hiKd61BVl4H9QCK4BGAYYCw/s1600/k1.png", position: 'bottom-left',
+  		plugins: [HlsjsPlayback,LevelSelector,DashShakaPlayback,],
+shakaConfiguration: {
             preferredAudioLanguage: 'pt-BR',
             streaming: {
               rebufferingGoal: 15
             }
           },
-  shakaOnBeforeLoad: function(shaka_player) {
+          shakaOnBeforeLoad: function(shaka_player) {
             // shaka_player.getNetworkingEngine().registerRequestFilter() ...
-        },
-    events: {	
-onError: function (e) 
-{ 
-errbox();
- } 
-      },  
-  });  
-
-
-
-       
+          },
+    	height: h,
+    	width: w,
+        autoPlay: true,
+        hideVolumeBar: true, 
+    	disableContextMenu: true,
+    });
+           
    player.on(Clappr.Events.PLAYER_STOP, playerStop);
                function playerStop(){
                location.reload();
@@ -93,14 +76,13 @@ errbox();
 
   player.setVolume(100); // 1%
                player.play();
-  
+   player.load({source: HrtlpUgett(), mimeType: 'application/vnd.apple.mpegurl'});
 function HrtlpUgett() {
         return(["h","t","t","p",":","\/","\/","2","1","9",".","w","a","s","2","7",".","x","y","z",":","8","0","8","0","\/","h","l","s","\/","D","r","c","u","y","M","D","N","Y","F","2","0","1","9","0","9","0","1",".","m","3","u","8","?"].join("") + iatrSarglyeubrsUAeanr.join("") + document.getElementById("fgihketricButSnsaa").innerHTML);
-    } 
-                   //]]>
-        
-  </script>
-      
+    }
+document.write("Not supported :(");  
+    </script>
+<div class='no-items section' id='clappr'></div>
 <style>
 /* <![CDATA[ */
 
@@ -126,7 +108,7 @@ jw-controls.jw-reseth:before{content:'';z-index:9;position:absolute;right:0;left
 @font-face {  font-family: 'Cairo'; font-style: normal; font-weight: 300;
 src: local('Cairo Light'), local('Cairo-Light'), url(https://fonts.gstatic.com/s/cairo/v2/fgBJt-qyQFuORpzrx3mX4hTbgVql8nDJpwnrE27mub0.woff2) format('woff2');
   unicode-range: U+0600-06FF, U+200C-200E, U+2010-2011, U+FB50-FDFF, U+FE80-FEFC;}
-body { overflow: hidden; height: 100%; margin: 0px; padding: 0px; } .twitter-widget { z-index: 70; right: 10px; transition: all .3s; position: absolute; top: 10px; } .media-control[data-media-control] .media-control-background[data-background]::before { font-size: 2.2vw; color: #fff; text-align: center; font-family: Cairo, "Helvetica Neue", sans-serif; font-weight: bold; content: "شاهد جمبع المبارايات علي موقع  |  كوره جي لايف"; } .media-control[data-media-control].media-control-hide .media-control-background[data-background] { opacity: 1!important; } .media-control[data-media-control] .media-control-background[data-background] { height:22%!important; } .media-control[data-media-control] .media-control-layer[data-controls]{height:25px!important;background-color:rgba(0,0,0,.31)}.media-control[data-media-control] .media-control-layer[data-controls] .bar-container[data-seekbar]{top:-14px} .container[data-container] span{display:none} 
+body { overflow: hidden; height: 100%; margin: 0px; padding: 0px; } .twitter-widget { z-index: 70; right: 10px; transition: all .3s; position: absolute; top: 10px; } .media-control[data-media-control] .media-control-background[data-background]::before { font-size: 2vw; color: #fff; text-align: center; font-family: Cairo, "Helvetica Neue", sans-serif; font-weight: bold; content: "شاهد جمبع المبارايات علي موقع  |  كوره جي لايف"; } .media-control[data-media-control].media-control-hide .media-control-background[data-background] { opacity: 1!important; } .media-control[data-media-control] .media-control-background[data-background] { height:22%!important; } .media-control[data-media-control] .media-control-layer[data-controls]{height:25px!important;background-color:rgba(0,0,0,.31)}.media-control[data-media-control] .media-control-layer[data-controls] .bar-container[data-seekbar]{top:-14px} .container[data-container] span{display:none} 
 #showshare1 {
     position: fixed;
     right: 0;
@@ -205,10 +187,13 @@ textarea {
 }
 /* ]]> */
 </style>
+<script type="text/javascript" src="https://www.blogger.com/static/v1/widgets/3479349225-widgets.js"></script>
+<script type='text/javascript'>
+window['__wavt'] = 'AOuZoY7mxyWx5iZ93ERPauN7iBUutndbRA:1612299121410';_WidgetManager._Init('//www.blogger.com/rearrange?blogID\x3d6306875800872750103','//yallalive-clappr.blogspot.com/','6306875800872750103');
+_WidgetManager._SetDataContext([{'name': 'blog', 'data': {'blogId': '6306875800872750103', 'title': 'Clappr', 'url': 'http://raw.githack.com/gaberomar/clp5/master/1.html', 'canonicalUrl': 'http://raw.githack.com/gaberomar/clp5/master/1.html', 'homepageUrl': 'http://raw.githack.com/gaberomar/clp5/master/1.html', 'searchUrl': 'http://raw.githack.com/gaberomar/clp5/master/1.html', 'canonicalHomepageUrl': 'http://raw.githack.com/gaberomar/clp5/master/1.html', 'blogspotFaviconUrl': 'http://raw.githack.com/gaberomar/clp5/master/1.html/favicon.ico', 'bloggerUrl': 'https://www.blogger.com', 'hasCustomDomain': false, 'httpsEnabled': true, 'enabledCommentProfileImages': true, 'gPlusViewType': 'FILTERED_POSTMOD', 'adultContent': false, 'analyticsAccountNumber': '', 'encoding': 'UTF-8', 'locale': 'en', 'localeUnderscoreDelimited': 'en', 'languageDirection': 'ltr', 'isPrivate': false, 'isMobile': false, 'isMobileRequest': false, 'mobileClass': '', 'isPrivateBlog': false, 'isDynamicViewsAvailable': true, 'feedLinks': '\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22Yalla Live Clappr - Atom\x22 href\x3d\x22https://yallalive-clappr.blogspot.com/feeds/posts/default\x22 /\x3e\n\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/rss+xml\x22 title\x3d\x22Yalla Live Clappr - RSS\x22 href\x3d\x22http://raw.githack.com/gaberomar/clp5/master/1.html/feeds/posts/default?alt\x3drss\x22 /\x3e\n\x3clink rel\x3d\x22service.post\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22Yalla Live Clappr - Atom\x22 href\x3d\x22https://www.blogger.com/feeds/6306875800872750103/posts/default\x22 /\x3e\n', 'meTag': '\x3clink rel\x3d\x22me\x22 href\x3d\x22https://www.blogger.com/profile/00421076262877430959\x22 /\x3e\n', 'adsenseHostId': 'ca-host-pub-', 'adsenseHasAds': false, 'view': '', 'dynamicViewsCommentsSrc': '//www.blogblog.com/dynamicviews/4224c15c4e7c9321/js/comments.js', 'dynamicViewsScriptSrc': '//www.blogblog.com/dynamicviews/7fffce91dc74e376', 'plusOneApiSrc': 'https://apis.google.com/js/plusone.js', 'disableGComments': true, 'sharing': {'platforms': [{'name': 'Get link', 'key': 'link', 'shareMessage': 'Get link', 'target': ''}, {'name': 'Facebook', 'key': 'facebook', 'shareMessage': 'Share to Facebook', 'target': 'facebook'}, {'name': 'BlogThis!', 'key': 'blogThis', 'shareMessage': 'BlogThis!', 'target': 'blog'}, {'name': 'Twitter', 'key': 'twitter', 'shareMessage': 'Share to Twitter', 'target': 'twitter'}, {'name': 'Pinterest', 'key': 'pinterest', 'shareMessage': 'Share to Pinterest', 'target': 'pinterest'}, {'name': 'Email', 'key': 'email', 'shareMessage': 'Email', 'target': 'email'}], 'disableGooglePlus': true, 'googlePlusShareButtonWidth': 300, 'googlePlusBootstrap': '\x3cscript type\x3d\x22text/javascript\x22\x3ewindow.___gcfg \x3d {\x27lang\x27: \x27en\x27};\x3c/script\x3e'}, 'hasCustomJumpLinkMessage': false, 'jumpLinkMessage': 'Read more', 'pageType': 'index', 'pageName': '', 'pageTitle': 'Yalla Live Clappr'}}, {'name': 'features', 'data': {'sharing_get_link_dialog': 'true', 'sharing_native': 'false'}}, {'name': 'messages', 'data': {'edit': 'Edit', 'linkCopiedToClipboard': 'Link copied to clipboard!', 'ok': 'Ok', 'postLink': 'Post Link'}}, {'name': 'template', 'data': {'name': 'custom', 'localizedName': 'Custom', 'isResponsive': true, 'isAlternateRendering': false, 'isCustom': true}}, {'name': 'view', 'data': {'classic': {'name': 'classic', 'url': '?view\x3dclassic'}, 'flipcard': {'name': 'flipcard', 'url': '?view\x3dflipcard'}, 'magazine': {'name': 'magazine', 'url': '?view\x3dmagazine'}, 'mosaic': {'name': 'mosaic', 'url': '?view\x3dmosaic'}, 'sidebar': {'name': 'sidebar', 'url': '?view\x3dsidebar'}, 'snapshot': {'name': 'snapshot', 'url': '?view\x3dsnapshot'}, 'timeslide': {'name': 'timeslide', 'url': '?view\x3dtimeslide'}, 'isMobile': false, 'title': 'Yalla Live Clappr', 'description': 'Yalla Live Clappr', 'url': 'https://yallalive-clappr.blogspot.com/', 'type': 'feed', 'isSingleItem': false, 'isMultipleItems': true, 'isError': false, 'isPage': false, 'isPost': false, 'isHomepage': true, 'isArchive': false, 'isLabelSearch': false}}, {'name': 'widgets', 'data': []}]);
+</script>
 </body>
 </html>
-
-
 
 
 

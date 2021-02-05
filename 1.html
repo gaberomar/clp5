@@ -37,11 +37,13 @@ var sv = getParam("sv");
             return vars;
         }
         var link = getUrlVars()["src"];  	
-    </script>
-
-</head>
-<body>
-<div id='player'></div>
+<head>	
+<style type="text/css">body{margin:0 auto;}</style>
+ </head>
+<body style="margin:0;background:#000;">
+<div id="iframeDiv" style="width: 100%;"> 
+<body onload="init()">
+ <div id="player" class="player" onclick="pon();"></div>
 <script>
     var p = document.getElementById('player');
 	var h = p.offsetHeight;

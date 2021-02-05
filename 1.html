@@ -14,7 +14,9 @@
 #player{width: 100vw; height: 100vh;}
 
 --></style>
-<script src='https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js' type='text/javascript'></script>ator.min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js' type='text/javascript'></script>
+<script src='https://cdn.jsdelivr.net/npm/@clappr/hlsjs-playback@latest/dist/hlsjs-playback.min.js' type='text/javascript'></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js"></script>
 <script src='https://cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.js' type='text/javascript'></script>
 <script> 
 function getParam ( sname )
@@ -25,22 +27,18 @@ function getParam ( sname )
 }
 var sv = getParam("sv");
 </script>
-<script type='text/javascript'>
-        function getUrlVars() {
-          var vars = {};
-          var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
-          vars[key] = value;
-        });
-            return vars;
-        }
-        var link = getUrlVars()["src"];  	
-    </script>
+
 
 </head>
 <body style="margin:0;background:#000;">
+
 <div id="iframeDiv" style="width: 100%;"> 
+
 <body onload="init()">
+
+
 <div id="player" class="player"></div>
+
 <script>
     var p = document.getElementById('player');
 	var h = p.offsetHeight;

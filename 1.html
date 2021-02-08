@@ -64,9 +64,9 @@ var sv = getParam(" ");
  plugins: {core: [LevelSelector], playback:[HlsjsPlayback, DashShakaPlayback],}, 
 	  events: {
               onError: function(e) { errorPlaying() }
-            },    
-       playback: {
-                     playInline: true,
+            },  
+	    playInline: true,
+       playback: {       
       hlsjsConfig: { 
              enableWebVTT: false,
               enableCEA708Captions: false, 
@@ -105,7 +105,7 @@ var sv = getParam(" ");
 
 
 
-       
+ hlsjs.playback.initClapprPlayer(player);    
    player.on(Clappr.Events.PLAYER_STOP, playerStop);
                function playerStop(){
                location.reload();

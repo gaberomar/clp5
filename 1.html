@@ -62,6 +62,27 @@ var sv = getParam(" ");
     watermark: "http://1.bp.blogspot.com/-6Utq5JU_l2w/YCAo8gB0x7I/AAAAAAAALZU/YJxOQHkvIywpU4znsCgYEvIsc-U8ijY1wCK4BGAYYCw/s1600/2.png", position: 'bottom-left',
   stretching: 'exactfit',
  plugins: {core: [LevelSelector], playback:[HlsjsPlayback, DashShakaPlayback],}, 
+	  events: {
+              onError: function(e) { errorPlaying() }
+            },    
+       playback: {
+                     playInline: true,
+      hlsjsPlaybackConfig: { 
+             enableWebVTT: false,
+              enableCEA708Captions: false, 
+              maxBufferLength: 10, 
+               liveSyncDurationCount: 9, 
+              initialLiveManifestSize: 3, 
+                   p2pConfig: {
+                   logLevel: 'debug',
+                   live: true,	
+         wsSignalerAddr: 'wss://free.freesignal.net',				
+	wsSignalerAddr: 'wss://signal.hdtvcloud.com',					
+	announce: "https://tracker.hdtvcloud.com/v1", }} 
+                            },  
+	xhrSetup: function(xhr, url) {
+		xhr.withCredentials = false;
+	            },   
    shakaConfiguration: {
             preferredAudioLanguage: 'pt-BR',
             streaming: {
@@ -71,12 +92,6 @@ var sv = getParam(" ");
   shakaOnBeforeLoad: function(shaka_player) {
             // shaka_player.getNetworkingEngine().registerRequestFilter() ...
         },
-    events: {	
-onError: function (e) 
-{ 
-errbox();
- } 
-      }, 
 	   errorPlugin: {
      timeToExpires: 2,
     onRetry: function(e) {

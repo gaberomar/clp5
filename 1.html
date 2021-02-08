@@ -62,16 +62,6 @@ var sv = getParam(" ");
     watermark: "http://1.bp.blogspot.com/-6Utq5JU_l2w/YCAo8gB0x7I/AAAAAAAALZU/YJxOQHkvIywpU4znsCgYEvIsc-U8ijY1wCK4BGAYYCw/s1600/2.png", position: 'bottom-left',
   stretching: 'exactfit',
  plugins: {core: [LevelSelector], playback:[HlsjsPlayback, DashShakaPlayback],}, 
- 
-             errorPlugin: {
-     timeToExpires: 2,
-    onRetry: function(e) {
-      player.configure({
-         source:  sv,
-        autoPlay: true,
-      });
-    }
-  },
    shakaConfiguration: {
             preferredAudioLanguage: 'pt-BR',
             streaming: {
@@ -86,7 +76,16 @@ onError: function (e)
 { 
 errbox();
  } 
-      },  
+      }, 
+	   errorPlugin: {
+     timeToExpires: 2,
+    onRetry: function(e) {
+      player.configure({
+         source:  sv,
+        autoPlay: true,
+      });
+    }
+  }, 
   });  
 
 

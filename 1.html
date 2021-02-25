@@ -1,4 +1,5 @@
 
+
 <html><head>
  <style>
       /* This CSS is required to avoid layout issues */
@@ -24,7 +25,7 @@
  <script src="https://cdn.jsdelivr.net/npm/p2p-media-loader-core@latest/build/p2p-media-loader-core.min.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/p2p-media-loader-hlsjs@latest/build/p2p-media-loader-hlsjs.min.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/clappr@latest"></script>
-
+ <script src="https://cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js"></script>
  
 <script type="text/javascript">
 function getParam ( sname )
@@ -60,7 +61,7 @@ var sv = getParam("sv");
            seekbar: "#f2b804",
            buttons: "#f2b804"
                           },     
- plugins: [ErrorPlugin, Clappr.FlasHLS], 
+  plugins: [LevelSelector, ErrorPlugin, Clappr.FlasHLS],  
          playback: {
                 playInline: true,
                     hlsjsConfig: {

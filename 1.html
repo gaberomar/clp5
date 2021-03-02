@@ -14,14 +14,11 @@
       }
     </style></head>
 <meta charset="utf-8">
-<meta name="referrer" content="no-referrer">
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Clappr play</title>
-	<style>/*<![CDATA[*/
-@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@500&display=swap');
-  body *{font-family: 'Tajawal', sans-serif!important}
-/*]]>*/</style>
-
+	
+<meta name="referrer" content="no-referrer">
  <script src="https://cdn.jsdelivr.net/npm/p2p-media-loader-core@latest/build/p2p-media-loader-core.min.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/p2p-media-loader-hlsjs@latest/build/p2p-media-loader-hlsjs.min.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/clappr@latest"></script>
@@ -36,7 +33,7 @@ function getParam ( sname )
 }
 var sv = getParam("sv");
 </script>
-</head>
+
 <div style="width: 100%;">
 <body style="margin:0px;padding:0px;overflow:hidden">
 
@@ -57,10 +54,7 @@ var sv = getParam("sv");
                 hideVolumeBar: true, 
  position: "bottom-left",   
     watermark: "http://1.bp.blogspot.com/-6Utq5JU_l2w/YCAo8gB0x7I/AAAAAAAALZU/YJxOQHkvIywpU4znsCgYEvIsc-U8ijY1wCK4BGAYYCw/s1600/2.png", 
-           mediacontrol: {
-           seekbar: "#f2b804",
-           buttons: "#f2b804"
-                          },     
+            mediacontrol: {seekbar: "rgba(232, 98, 86, 0.8)", buttons: "rgba(232, 98, 86, 0.8)"},    
   plugins: [LevelSelector, ErrorPlugin, Clappr.FlasHLS],  
          playback: {
                 playInline: true,
@@ -124,7 +118,10 @@ jw-controls.jw-reseth:before{content:'';z-index:9;position:absolute;right:0;left
    .
 
 /*]]>*/</style>
-	 
+	<style>/*<![CDATA[*/
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@500&display=swap');
+  body *{font-family: 'Tajawal', sans-serif!important}
+/*]]>*/</style> 
 <style>
 /* <![CDATA[ */
 

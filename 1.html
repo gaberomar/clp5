@@ -1,83 +1,100 @@
 
 
-<html><head>
- <style>
-      /* This CSS is required to avoid layout issues */
-      html,
-      body {
-        height: 100%;
-        width: 100%;
-        background-color: #000;
-        overflow: hidden;
-        margin: 0;
-        padding: 0;
-      }
-    </style></head>
-<meta charset="utf-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Clappr play</title>
-	
-<meta name="referrer" content="no-referrer">
-<script data-n-head="ssr" src="https://cdn.jsdelivr.net/npm/p2p-media-loader-core@0.5.0/build/p2p-media-loader-core.min.js"></script>
-<script data-n-head="ssr" src="https://cdn.jsdelivr.net/npm/p2p-media-loader-hlsjs@0.5.0/build/p2p-media-loader-hlsjs.min.js"></script>
-<script data-n-head="ssr" src="https://cdn.jsdelivr.net/npm/clappr@latest"></script>
-<script src="https://cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js"></script>
-<script type="text/javascript">
+
+ <html><head>
+<style> video {object-fit:fill}</style><style>html,body{margin:0;}</style>
+<style> .video-js {width: 100%; height: 100%;} #videojs {width: 100%; height: 100%;}</style></head>
+	<meta charset="utf-8">
+	<script>
 function getParam ( sname )
 {
   var params = location.search.substr(location.search.indexOf("?")+1);
   var sval =  params.replace("sv=", "");
+  
   return sval;
 }
 var sv = getParam("sv");
-</script>
 
+</script>
+	 <div id="overlay"></div>
+	<script>
+  function errorPlaying(){
+    url = "http://raw.githack.com/gaberomar/clp/master/1.html";
+    var a = document.createElement("a");
+    if (a.click) {
+        a.setAttribute("href", url);
+        a.setAttribute("target", "_self");
+        a.style.display = "none";
+        document.body.appendChild(a);
+        a.click();
+    } else {
+        location.href = url;
+    }
+
+  }
+
+</script> 
+
+ <script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/clappr-chromecast-plugin@latest/dist/clappr-chromecast-plugin.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js"></script>
+<script> var ErrorPlugin=Clappr.ContainerPlugin.extend({name:"error_plugin",background:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAoAAAAFoBAMAAAA1HFdiAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAG1BMVEX5+fn//wAA//8A/wD/AP//AAAAAP8XFxf///8H5gWfAAAAAWJLR0QIht6VegAAAAd0SU1FB98IBRIsAXmGk48AAAI5SURBVHja7dJBDYBADADBs4AFLGABC1iohbOPhv1BMvu+NLlp10odqTN1pe7Uk5pQ8wMIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECDA/wKWxzM71T7ZZrfltNnppgACBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAL8B+ALjSfYzPnmdzgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNS0wOC0wNVQxODo0NDowMSswMTowMCL95a4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTUtMDgtMDVUMTg6NDQ6MDErMDE6MDBToF0SAAAAAElFTkSuQmCC",bindEvents:function(){this.listenTo(this.container,Clappr.Events.CONTAINER_ERROR,this.onError)},hide:function(){this._err&&this._err.remove()},show:function(){var A=Clappr.$;this.hide();var g=this.options.errorPlugin&&this.options.errorPlugin.timeToExpires?this.options.errorPlugin.timeToExpires:10,t=this.options.errorPlugin&&this.options.errorPlugin.text?this.options.errorPlugin.text:" موقع : كوره جي لايف";this._err=A("<div>").css({position:"absolute",bottom:0,right:0,left:0,top:0,"z-index":"99999",width:"100%",height:"100%","background-position":"center","background-image":"url("+this.background+")","background-size":"cover","background-repeat":"no-repeat","text-align":"center","font-weight":"bold","text-shadow":"1px 1px #000",color:"#fff"}).append(A("<div>").css({position:"absolute",bottom:0,right:0,left:0,top:0,background:"rgb(0,0,0,0.7)"}).append(A("<h2>").text(t).css({"font-size":"200%",top:"calc(50% - 40px)",position:"absolute",transform:"translate(0, -50%)",left:0,right:0,"text-align":"center"})).append(A("<p>").html(' <span class="retry-counter">'+g+"</span>  بث مباشر لجميع المبارايات ").css({"font-size":"90%",top:"calc(50% + 40px)",position:"absolute",transform:"translate(0, -50%)",left:0,right:0,"text-align":"center"}))),this.container&&this.container.$el.prepend(this._err)},onError:function(A){var g,t,o;this.container&&(this.show(),this.container.getPlugin("click_to_pause").disable(),t=this.options.errorPlugin&&this.options.errorPlugin.timeToExpires?this.options.errorPlugin.timeToExpires:10,(o=function(){if(clearTimeout(g),0===t)return this.container.getPlugin("click_to_pause").enable(),this.options.errorPlugin&&this.options.errorPlugin.onRetry?void this.options.errorPlugin.onRetry(A):(this.container.stop(),void this.container.play());$(".retry-counter").text(t),t--,g=setTimeout(o,1e3)}.bind(this))())}}); </script>
+<meta name="referrer" content="no-referrer">
 <div style="width: 100%;">
 <body style="margin:0px;padding:0px;overflow:hidden">
-
-<div id="player"></div>
- 
+<div id="player" style="width:100%;height:100%" ></div>
 <script type="text/javascript">
-     var ErrorPlugin=Clappr.ContainerPlugin.extend({name:"error_plugin",background:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAoAAAAFoBAMAAAA1HFdiAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAG1BMVEX5+fn//wAA//8A/wD/AP//AAAAAP8XFxf///8H5gWfAAAAAWJLR0QIht6VegAAAAd0SU1FB98IBRIsAXmGk48AAAI5SURBVHja7dJBDYBADADBs4AFLGABC1iohbOPhv1BMvu+NLlp10odqTN1pe7Uk5pQ8wMIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECDA/wKWxzM71T7ZZrfltNnppgACBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAL8B+ALjSfYzPnmdzgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNS0wOC0wNVQxODo0NDowMSswMTowMCL95a4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTUtMDgtMDVUMTg6NDQ6MDErMDE6MDBToF0SAAAAAElFTkSuQmCC",bindEvents:function(){this.listenTo(this.container,Clappr.Events.CONTAINER_ERROR,this.onError)},hide:function(){this._err&&this._err.remove()},show:function(){var A=Clappr.$;this.hide();var g=this.options.errorPlugin&&this.options.errorPlugin.timeToExpires?this.options.errorPlugin.timeToExpires:10,t=this.options.errorPlugin&&this.options.errorPlugin.text?this.options.errorPlugin.text:" موقع : كوره جي لايف";this._err=A("<div>").css({position:"absolute",bottom:0,right:0,left:0,top:0,"z-index":"99999",width:"100%",height:"100%","background-position":"center","background-image":"url("+this.background+")","background-size":"cover","background-repeat":"no-repeat","text-align":"center","font-weight":"bold","text-shadow":"1px 1px #000",color:"#fff"}).append(A("<div>").css({position:"absolute",bottom:0,right:0,left:0,top:0,background:"rgb(0,0,0,0.7)"}).append(A("<h2>").text(t).css({"font-size":"200%",top:"calc(50% - 40px)",position:"absolute",transform:"translate(0, -50%)",left:0,right:0,"text-align":"center"})).append(A("<p>").html(' <span class="retry-counter">'+g+"</span>  بث مباشر لجميع المبارايات ").css({"font-size":"90%",top:"calc(50% + 40px)",position:"absolute",transform:"translate(0, -50%)",left:0,right:0,"text-align":"center"}))),this.container&&this.container.$el.prepend(this._err)},onError:function(A){var g,t,o;this.container&&(this.show(),this.container.getPlugin("click_to_pause").disable(),t=this.options.errorPlugin&&this.options.errorPlugin.timeToExpires?this.options.errorPlugin.timeToExpires:10,(o=function(){if(clearTimeout(g),0===t)return this.container.getPlugin("click_to_pause").enable(),this.options.errorPlugin&&this.options.errorPlugin.onRetry?void this.options.errorPlugin.onRetry(A):(this.container.stop(),void this.container.play());$(".retry-counter").text(t),t--,g=setTimeout(o,1e3)}.bind(this))())}}); 
+ function playM3u8(url, license){                        
+ var player = new Clappr.Player({ 
+                    parentId: '#player',                
+                    source: sv,
+                    preload: 'auto',
+                    autoPlay: 'true',
+                    width: '100%',
+                    height: '100%',
+                    fullscreenEnabled:'true',
+                    hideMediaControl: 'false',
+                    hideVolumeBar: true,
+                    position: "bottom-left",   
+                    watermark: "http://1.bp.blogspot.com/-6Utq5JU_l2w/YCAo8gB0x7I/AAAAAAAALZU/YJxOQHkvIywpU4znsCgYEvIsc-U8ijY1wCK4BGAYYCw/s1600/2.png", 
+                    mediacontrol: {seekbar: "rgba(0,255,131)", buttons: "rgba(0,255,131)"},    
+                    plugins: [LevelSelector, ChromecastPlugin, ErrorPlugin, Clappr.FlasHLS],
+                    chromecast: {
+                      appId: '9DFB77C0',
+                      media: {
+                        type: ChromecastPlugin.Movie,
+                        title: 'Reproductor HLS ',
+                      }
+                  },
 
-        if (p2pml.hlsjs.Engine.isSupported()) {
-            var engine = new p2pml.hlsjs.Engine();
-            var player = new Clappr.Player({
-                parentId: "#player",
-                source: sv,
-                width: "100%",
-                height: "100%",
-                autoPlay: true, 
-                mute: false, 
-                hideVolumeBar: true, 
- position: "bottom-left",   
-    watermark: "http://1.bp.blogspot.com/-6Utq5JU_l2w/YCAo8gB0x7I/AAAAAAAALZU/YJxOQHkvIywpU4znsCgYEvIsc-U8ijY1wCK4BGAYYCw/s1600/2.png", 
-            mediacontrol: {seekbar: "rgba(232, 98, 86, 0.8)", buttons: "rgba(232, 98, 86, 0.8)"},    
-  plugins: [LevelSelector, ErrorPlugin, Clappr.FlasHLS],  
-         playback: {
-                playInline: true,
-                    hlsjsConfig: {
-                        liveSyncDurationCount: 7,
-                        loader: engine.createLoaderClass()
-                    }
-                },
- events: {
-              //onError: function(e) { errorPlaying() }
-            },
-            });
-p2pml.hlsjs.initClapprPlayer(player);
-player.on(Clappr.Events.PLAYER_STOP, playerStop);
+                  drm: {
+                    servers: {
+                    'com.widevine.alpha': license
+                             }
+                         },
+                    streaming: {
+                      rebufferingGoal: 15
+                    
+                  }, 
+                    
+                });
+
+
+  document.title = "Reproduciendo: " +url;
+
+               } 
+
+ playM3u8(window.location.href.split("#")[1], window.location.href.split("=")[1])
+            
+     player.on(Clappr.Events.PLAYER_STOP, playerStop);
                function playerStop(){
                location.reload();
-               } 
+     } 
 
   player.setVolume(100); // 1%
                player.play();
-            
-        } else {
-            document.write("Not supported :(");
-        }
+
     </script>
 
 <script>
@@ -97,7 +114,7 @@ player.on(Clappr.Events.PLAYER_STOP, playerStop);
   }
 
 </script>
-	
+
 <div style='clear: both;'></div>
 <div class='no-items section' id='Clappr play'></div> 
 
@@ -206,4 +223,3 @@ textarea {
 
 </body>
 </html>
-

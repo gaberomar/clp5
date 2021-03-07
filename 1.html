@@ -35,9 +35,7 @@ var sv = getParam("sv");
 
 </script> 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
- 
 <script src="https://cdn.jsdelivr.net/npm/clappr-chromecast-plugin@latest/dist/clappr-chromecast-plugin.min.js"></script>
-
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js"></script>
 
 <script type="text/javascript">
@@ -83,7 +81,8 @@ function gUlrmRettp() {
    width: '100%', 
    position: "bottom-left",   
    watermark: "http://1.bp.blogspot.com/-6Utq5JU_l2w/YCAo8gB0x7I/AAAAAAAALZU/YJxOQHkvIywpU4znsCgYEvIsc-U8ijY1wCK4BGAYYCw/s1600/2.png", 
-    plugins: [LevelSelector, ChromecastPlugin,  ErrorPlugin, Clappr.FlasHLS],
+   mediacontrol: {seekbar: "rgba(0,255,131)", buttons: "rgba(0,255,131)"},  
+   plugins: [LevelSelector, ChromecastPlugin,  ErrorPlugin, Clappr.FlasHLS],
             events: {
               //onError: function(e) { errorPlaying() }
             },

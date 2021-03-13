@@ -15,11 +15,10 @@ var sv = getParam("sv");
 
 </script>
 
-	 <div id="overlay"></div>
-
-	<script>
+	<div id="overlay"></div>
+<script>
   function errorPlaying(){
-    url = "";
+    url = "/stream/6/98357.html";
     var a = document.createElement("a");
     if (a.click) {
         a.setAttribute("href", url);
@@ -32,6 +31,7 @@ var sv = getParam("sv");
     }
 
   }
+
 
 </script> 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
@@ -68,9 +68,6 @@ var sv = getParam("sv");
    position: "bottom-left",   
    watermark: "http://1.bp.blogspot.com/-6Utq5JU_l2w/YCAo8gB0x7I/AAAAAAAALZU/YJxOQHkvIywpU4znsCgYEvIsc-U8ijY1wCK4BGAYYCw/s1600/2.png", 
    mediacontrol: {seekbar: "rgba(0,255,131)", buttons: "rgba(0,255,131)"},  
-   events: {
-     //onError: function(e) { errorPlaying() }
-         },
    chromecast: {
    appId: '9DFB77C0',
    contentType: 'video/m3u8',
@@ -83,6 +80,9 @@ var sv = getParam("sv");
    licenseURL: 'http://widevine/yourLicenseServer'
           }
          },
+     events: {
+            onError: function(e) { errorPlaying() }
+             },
         });
 
 

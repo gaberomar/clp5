@@ -1,5 +1,7 @@
 
 <!DOCTYPE html>
+
+
  <html><head>
 <style> video {object-fit:fill}</style><style>html,body{margin:0;}</style>
 <style> .video-js {width: 100%; height: 100%;} #videojs {width: 100%; height: 100%;}</style></head>
@@ -114,6 +116,7 @@ var getQueryString = function ( field, url ) {
 
  var player = new Clappr.Player({
    source: sv,
+  mimeType: 'application/x-mpegURL',
    plugins: [LevelSelector, DashShakaPlayback, ChromecastPlugin,  ErrorPlugin, Clappr.FlasHLS],
    autoPlay:true,  
    parentId: "#player",
@@ -122,7 +125,10 @@ var getQueryString = function ( field, url ) {
    width: '100%', 
    position: "bottom-left",   
    watermark: "http://1.bp.blogspot.com/-6Utq5JU_l2w/YCAo8gB0x7I/AAAAAAAALZU/YJxOQHkvIywpU4znsCgYEvIsc-U8ijY1wCK4BGAYYCw/s1600/2.png", 
-   mediacontrol: {seekbar: "rgba(0,255,131)", buttons: "rgba(0,255,131)"},  
+   mediacontrol: {seekbar: "rgba(0,255,131)", buttons: "rgba(0,255,131)"}, 
+ events: {
+              onError: function(e) { errorPlaying()}
+}, 
        chromecast: {
           appId: '9DFB77C0',
           contentType: 'video/mp4',
@@ -135,37 +141,18 @@ var getQueryString = function ( field, url ) {
             licenseURL: 'http://widevine/yourLicenseServer'
           }
          },
-          events: {	
-onError: function (e) 
-{ 
-errbox();
- },  
-      }    
+         
             });
 
-
-player.on(Clappr.Events.PLAYER_STOP, playerStop);
+ player.on(Clappr.Events.PLAYER_STOP, playerStop);
                function playerStop(){
                location.reload();
-               } 
-
-  player.setVolume(100); // 1%
+                }
+    
+               player.setVolume(100); // 1%
                player.play();
        
-   	var player='';
-
-function gUlrmRettp() {
-        return([""].join("") + ailarbrSansrUtAereugy.join("") + document.getElementById("ShikacrtaBetugfnsi").innerHTML);
-    }
-    function rgpmtatmeRtSe() {
-        return([""].join(""));
-        
-        }
- function tretplHgUt() {
-        return(["\/","\/","n","l","1",".","s","t","r","e","a","m","l","i","v","e",".","t","o","\/","f","r","e","e","a","b","r","\/","z","f","5","w","0","3","b","q","4","0","g","d","k","y","1","\/","p","l","a","y","l","i","s","t",".","m","3","u","8","?","w","m","s","A","u","t","h","S","i","g","n","="].join("") + ailarbrSansrUtAereugy.join("") + document.getElementById("ShikacrtaBetugfnsi").innerHTML);
-    }
-
-
+   	
     </script>
 
 <script>

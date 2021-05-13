@@ -1,5 +1,6 @@
 
- <html><head>
+
+<link href="https://easysite.one/z/Css/LayoutDefaul.css" rel='stylesheet' type='text/css' />
 <style> video {object-fit:fill}</style><style>html,body{margin:0;}</style>
 <style> .video-js {width: 100%; height: 100%;} #videojs {width: 100%; height: 100%;}</style>
 	<script type="1126e12c05e649c436a3db9f-text/javascript">
@@ -13,101 +14,49 @@ function getParam ( sname )
 var sv = getParam("sv");
 
 </script>
-  <title>Bein Sport </title>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-Frame-Options" content="deny">
-<script src='http://raw.githack.com/gaberomar/1.js/master/1.js' type="1126e12c05e649c436a3db9f-text/javascript"></script>
-<script src='http://raw.githack.com/gaberomar/2.js/master/1.js' type="1126e12c05e649c436a3db9f-text/javascript"></script>
-<script src='https://cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.js' type="1126e12c05e649c436a3db9f-text/javascript"></script>
-<script src='https://cdn.jsdelivr.net/clappr.chromecast-plugin/latest/clappr-chromecast-plugin.js' type="1126e12c05e649c436a3db9f-text/javascript"></script>
-<style class="clappr-style">.chromecast-playback {
-  height: 100%;
-  width: 100%; }
-  .chromecast-playback .chromecast-playback-background, .chromecast-playback .chromecast-playback-overlay {
-    position: absolute;
-    height: 100%;
-    width: 100%; }
-  .chromecast-playback .chromecast-playback-background {
-    background-size: contain; }
-  .chromecast-playback .chromecast-playback-overlay {
-    background-color: #000;
-    opacity: 0.4; }
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<meta http-equiv="Expires" content="0" /> 
+<meta http-equiv="Pragma" content="no-cache" /> 
+<meta http-equiv="Cache-Control" content="no-cache"/>
+</head>
 
-.chromecast-button {
-  background: transparent;
-  border: 0;
-  width: 32px;
-  height: 32px;
-  font-size: 22px;
-  line-height: 32px;
-  letter-spacing: 0;
-  margin: 0 6px;
-  color: #fff;
-  opacity: 0.5;
-  vertical-align: middle;
-  text-align: left;
-  cursor: pointer;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-transition: all 0.1s ease;
-  -moz-transition: all 0.1s ease;
-  -o-transition: all 0.1s ease;
-  transition: all 0.1s ease; }
-  .chromecast-button:hover {
-    opacity: 0.75;
-    text-shadow: rgba(255, 255, 255, 0.8) 0 0 5px; }
-  .chromecast-button:focus {
-    outline: none; }
-  .chromecast-button svg {
-    width: 24px;
-    height: 24px; }
-    .chromecast-button svg #cast, .chromecast-button svg #cast-on, .chromecast-button svg #Path {
-      fill: #fff;
-      stroke: #fff;
-      stroke-width: 0.5px; }
-</style>
-
-	<body>
-<div id="player" style="width:100%;height:100%;"></div>	
-<script type="1126e12c05e649c436a3db9f-text/javascript">
-//<![CDATA[ 
-player = new Clappr.Player({
+  <center>
+    
+   <script src="https://easysite.one/z/js/player/clapper/jquery-3.2.0.min.js" type="text/javascript"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
 	
-            source: sv,
-           parentId: "#player",
-            mimeType: "application/x-mpegURL",
-            autoPlay: true, 
-            mute: false, 
-            hideVolumeBar: true,
-            height: '100%',
-            width: '100%',
-plugins:[DashShakaPlayback,LevelSelector,ChromecastPlugin],
-  watermark  : "http://1.bp.blogspot.com/-6Utq5JU_l2w/YCAo8gB0x7I/AAAAAAAALZU/YJxOQHkvIywpU4znsCgYEvIsc-U8ijY1wCK4BGAYYCw/s1600/2.png",
+<script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/level-selector@latest/dist/level-selector.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clappr-chromecast-plugin@latest/dist/clappr-chromecast-plugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clappr-pip@latest/dist/clappr-pip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dash-shaka-playback@latest/dist/dash-shaka-playback.min.js"></script>
+		
+		<center>
+		<div id="player"></div>
+		</center>
+	
+		<script>
+		var player = new Clappr.Player({
+			source: sv,
+			  watermark  : "http://1.bp.blogspot.com/-6Utq5JU_l2w/YCAo8gB0x7I/AAAAAAAALZU/YJxOQHkvIywpU4znsCgYEvIsc-U8ijY1wCK4BGAYYCw/s1600/2.png",
 		    position  : "bottom-left",
 mediacontrol: {seekbar: "rgba(0,255,131)", buttons: "rgba(0,255,131)"}, 
- allowUserInteraction: false,
-persistConfig: false,
+			plugins: [LevelSelector, ChromecastPlugin, ClapprPip.PipButton, ClapprPip.PipPlugin, DashShakaPlayback],
+mimeType: 'application/x-mpegURL',
+			autoPlay: true,
+			parentId: "#player",
+			width: '100%', 
+			height: '100%',
+ hideVolumeBar: true,
 chromecast:{appId:"9DFB77C0",
 contentType:"video/mp4",
 media:{type:ChromecastPlugin.Movie,
    }
             },
-	
-            events: {
-              onError: function(e) { 
-                setTimeout(function(){
-                  player.load(player.options.source);
-                  player.play();
-                },1000)
-              }
-            },
-            playback: {
-              hlsjsConfig: {
-                 liveSyncDuration: 10
-              }
-            } 
-});
 
+		});
   player.on(Clappr.Events.PLAYER_STOP, playerStop);
                function playerStop(){
                location.reload();
@@ -116,10 +65,11 @@ media:{type:ChromecastPlugin.Movie,
                player.setVolume(100); // 1%
 
 
+	</script> 
+		
 
-//]]>
-</script>
-
+</center>
+  
 <style>
 * {
   margin: 0;
@@ -268,87 +218,35 @@ textarea {
 }
 /* ]]> */
 </style>
-
-
-<div style="visibility:hidden">
-<script type="1126e12c05e649c436a3db9f-text/javascript">
-bool = false;
-var openedwin = false;
-var volumeSet = false;
-var loop = 0;
-    
-function getToVideo(e){
-    if(!openedwin){
-        window.open(popurl, '_blank');
-        openedwin = true;
-        popurltmp = popurl;
-        popurl = popurl2;
-        popurl2 = popurltmp;
-        $("#overlay").hide();
-        loop++;
-        if(loop == 1){
-            var timer=setTimeout(function(){
-                refreshdl();
-            },1000);
-        } else {
-          if(loop < 5){
-              var timer=setTimeout(function(){
-                  refreshdl();
-              },15000);
-          }
-        }
-        e.preventDefault();
-    }
-}
-
-$(document).on('touchend click', "#overlay", function(e) {
-    getToVideo(e);
-    if(!volumeSet && typeof player !== 'undefined'){
-      if(typeof player.version === 'undefined'){ //clappr
-        player.configure({hideMediaControl: "true"});
-      } else {
-        player.unmute();
-      }
-      player.setVolume(parseInt(pvolume));
-      volumeSet = true;
-      e.stopImmediatePropagation();
-    }
-});
-$(document).ready(function() {
-    if($.ads == undefined){
-      popurl = "";
-      //$("#site-contenedor .raulito").prop("src", "");
-    };
-    if(!isiOS && !isEdge){
-        $("body").append('<object data="data:application/pdf;base64,aG1t" width="1px" height="1px" style="position:absolute;top:-500px;left:-500px;visibility:hidden;" onerror="unsandbox();$(this).remove()"></object>');
-    }
-    if (!isInArray(hostname, whitelist)) {
-      vwu();
-      setInterval("vwu()", 300000);
-    }
-});
-
-function refreshdl(){
-    if(openedwin){
-        openedwin = false;
-        $("#overlay").show();
-    }
-}
-var timer=setTimeout(function(){
-    $('.close').fadeIn(300);
-},4000);
-  
-</script>
-<script type="1126e12c05e649c436a3db9f-text/javascript">var _Hasync= _Hasync|| [];
-_Hasync.push(['Histats.start', '1,2829404,4,3021,130,80,00011111']);
-_Hasync.push(['Histats.fasi', '1']);
-_Hasync.push(['Histats.track_hits', '']);
-(function() {
-var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
-hs.src = ('http://s10.histats.com/js15_as.js');
-(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
-})();</script>
-</div>
-<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="1126e12c05e649c436a3db9f-|49" defer=""></script></body>
 </body>
-</html>
+
+ 
+
+
+
+
+
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=11450916; 
+var sc_invisible=1; 
+var sc_security="e967258e"; 
+var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="web statistics"
+href="http://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="//c.statcounter.com/11450916/0/e967258e/1/" alt="web
+statistics"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+
+ 
+<!-- codice circuito  Pnet Publisher Network -->
+<!-- Spazio:  tuttojuve_info_popunder -->
+
+                                               
+                                            

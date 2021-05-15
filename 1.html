@@ -102,17 +102,17 @@ function togglePlayPauseNew() {
     	$(".fp-play").toggleClass("fp-visible");
     	setTimeout(function(){ $(".fp-play").toggleClass("fp-visible"); }, 300);	
 		// Play the media
-		mediaPlayer.play();
+		Player.play();
 	}
 	// Otherwise it must currently be playing
 	else {
 		changeButtonType(playPauseBtn, 'play');	
     	$(".fp-pause").toggleClass("fp-visible");
     	setTimeout(function(){ $(".fp-pause").toggleClass("fp-visible"); }, 300);
-		mediaPlayer.pause();
+		Player.pause();
 	}
 }
-var vidElem = document.getElementById('mediaplayer');
+var vidElem = document.getElementById('Player');
 $("#fadein").one("click", function () {
 	vidElem.muted = false;
     vidElem.volume = 1.0;

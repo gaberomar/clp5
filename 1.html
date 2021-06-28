@@ -57,7 +57,7 @@ var ErrorPlugin=Clappr.ContainerPlugin.extend({name:"error_plugin",background:"d
    height: '100%',
    width: '100%', 
    stretching:"uniform", 
-   watermark: "https://lh3.googleusercontent.com/-mXFjSAc2oeY/YL_LMaITMrI/AAAAAAAAM_I/5OQdkbeA91UcmUTr2sVYQTVbpGoGhWyzQCLcBGAsYHQ/s300-rw-e90-w300/lo.png", position : "bottom-left",  
+    watermark: "https://1.bp.blogspot.com/-RcWqkcNhNGE/YMP0d3OEG2I/AAAAAAAAM_s/8enH55tThiQ6Db9EbpyVmyxjaW4Z1BEuACLcBGAsYHQ/s300-rw-e90-w300/tv1.png", position : "bottom-left",   
    mediacontrol: {seekbar: "rgba(0,255,131)", buttons: "rgba(0,255,131)"}, 
      plugins: [LevelSelector, ChromecastPlugin, ErrorPlugin],
        chromecast: {
@@ -92,68 +92,6 @@ var ErrorPlugin=Clappr.ContainerPlugin.extend({name:"error_plugin",background:"d
    	
     </script>
 
-<script>
-function togglePlayPauseNew() {
-	// If the Player is currently paused or has ended
-	if (mediaPlayer.paused) {
-		// Change the button to be a pause button
-		changeButtonType(playPauseBtn, 'pause');
-    	$(".fp-play").toggleClass("fp-visible");
-    	setTimeout(function(){ $(".fp-play").toggleClass("fp-visible"); }, 300);	
-		// Play the media
-		Player.play();
-	}
-	// Otherwise it must currently be playing
-	else {
-		changeButtonType(playPauseBtn, 'play');	
-    	$(".fp-pause").toggleClass("fp-visible");
-    	setTimeout(function(){ $(".fp-pause").toggleClass("fp-visible"); }, 300);
-		Player.pause();
-	}
-}
-var vidElem = document.getElementById('Player');
-$("#fadein").one("click", function () {
-	vidElem.muted = false;
-    vidElem.volume = 1.0;
-	document.getElementById("prvdiv").className = "fp-color";
-	document.getElementById("vtordiv").className = "fp-color";
-	document.getElementById("tretdiv").className = "fp-color";
-	document.getElementById("cetvrtdiv").className = "fp-color";
-	document.getElementById("pettidiv").className = "fp-color";
-	document.getElementById("sestidiv").className = "fp-color";
-	document.getElementById("sedmidiv").className = "fp-color";
-});
-
-$(document).bind('webkitfullscreenchange mozfullscreenchange fullscreenchange', function(e) {
-    var state = document.fullScreen || document.mozFullScreen || document.webkitIsFullScreen;
-    var event = state ? 'FullscreenOn' : 'FullscreenOff';
-    if(event === 'FullscreenOff') {
-   		document.getElementById("player").className = "flowplayer fp-slim";
-    } 	else {
-
-   		}
-});
-
-$(".flowplayer").mouseenter(function(){
-    clearTimeout($(this).data('timeoutId'));
-    $(this).find(".flowplayer").fadeIn("slow");
-   		document.getElementById("player").className = "flowplayer fp-slim is-mouseover";
-		$(".fp-controls").css("display", "inline-flex");
-		$(".logo_overlay").css("display", "block");
-}).mouseleave(function(){
-    var someElement = $(this),
-        timeoutId = setTimeout(function(){
-            someElement.find(".flowplayer").fadeOut("slow");
-   		document.getElementById("player").className = "flowplayer fp-slim is-mouseout";
-		$(".fp-controls").css("display", "none");
-		$(".logo_overlay").css("display", "none");
-        }, 1000);
-    //set the timeoutId, allowing us to clear this trigger if the mouse comes back over
-    someElement.data('timeoutId', timeoutId); 
-});
-
-
-</script>
 <style>
 * {
   margin: 0;
